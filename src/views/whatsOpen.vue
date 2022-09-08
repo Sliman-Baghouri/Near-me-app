@@ -1,0 +1,196 @@
+<template>
+    <div class="sidebar-page-content">
+       <div class="open-time-component">
+      <span class="time-txt mr-2"> Open </span>
+        <span>
+          <select class="timeselectBox" v-model="openday" @change="getRestaurent">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="withinaweek">This Week</option>
+          </select>
+       </span>
+          <span class="time-txt ml-2 mr-2"> Within </span>
+          <span>
+          <select class="timeselectBox" v-model="radius" @change="getRestaurent">    
+            <option value="1">1 Km</option>
+						<option value="2"> 2Km</option>
+						<option value="4">4 Km</option>
+						<option value="6">6 Km</option>
+            <option value="10">10 Km</option>
+            <option value="15">15 Km</option>
+						<option value="20">20 Km</option>
+						<option value="30">30 Km</option>
+            <option value="40">40 Km</option>
+          </select>
+        </span>
+        <!-- By State -->
+
+        <span class="time-txt ml-2 mr-2"> State </span>
+          <span>
+          <select class="timeselectBox stateSelect"  @change="getFoodtrucksByState">    
+            <option value="SA">SA</option>
+            <option value="QLD">QLD</option>
+            <option selected="selected" value="VIC">VIC</option>
+            <option value="NSW">NSW</option>
+          </select>
+
+      </span>
+      </div>
+   
+     <div>
+
+  </div>
+
+  <div class="all-resto-list-component">
+    <!-- <div class="count-open-resto">
+        <span>Today(4/2)</span>
+    </div> -->
+
+    <div class="inner-resto-list-component">
+      <!-- resto list  -->
+      
+       <div  v-if="AllRestaurant.length != 0">
+        
+      <div class="resto-detail-container" :class="{active: activeIndex == index}" @click="onToggle(value,index)" :isActive="activeIndex === index"  v-for="(value, index) in AllRestaurant" :key="index"  
+      >
+        <div class="inner-detail-contailer d-flex">
+
+          <div class="resto-logo">
+           <img :src="value.logo" >
+            <!-- <img :src="require('../assets/profile.png')" > -->
+           <!-- <img :src=require('../../public/img/profile.png') > -->
+            </div>
+            <div class="all-details-block sidebarbox-font ">
+              <div class="resto-title-block">
+                <a href="#" class="resto-name-link common-name-link">{{value.name}}</a>
+                <!-- <span class="distance">{{value.distance}}</span> -->
+              </div>
+               <div class="resto-location">
+               <p class="resto-location-font">
+                  <span  v-for="(food, index) in  value.categories" :key="index">
+                    {{food.name}} ,
+                  </span>
+                
+
+                 </p>
+             </div>
+              <div class="map-location icon-text-box">
+              <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="map-location-name">{{value.address.substring(0,25)+".."}}</span>
+             
+            </div>
+            <div class="icon-text-box">
+            <!-- <span> value.vicinity.substring(0,50)+".."<i class="fa-solid fas-clock"></i></span> -->
+            <!-- <font-awesome-icon icon="fa-solid fa-clock" /> -->
+           <span><i class="fa fa-clock"></i></span>
+            <font-awesome-icon icon="clock" />
+            
+            <span class="map-clock-name">{{value.time}}</span>
+            </div>
+
+
+            </div>
+           
+
+          </div>
+           <div class="order-ahead" v-if="value.OrderAhead">
+             <div>
+               <a href="#">Order Ahead</a>
+             </div>
+
+           </div>
+
+
+      </div>
+      </div>
+      <div v-else>
+        No data found
+      </div>
+      <div >
+
+      </div>
+
+      <!-- end resto list -->
+          </div>
+  </div>
+    
+
+    </div>
+
+</template>
+<script>
+
+export default {
+  name: "app-sidebar",
+   mounted() {  
+     this.getRestaurent();
+     
+      
+   },
+  components: {
+    // MenuAccordion,
+    // MenuMinimized,
+  },
+ 
+  data() {
+    return {
+      activeIndex:null,
+      radius:6,
+      openday:'today',
+      state:'VIC',
+      places:[],
+    }
+  },
+  computed: {
+    AllRestaurant()
+    {
+     
+      var resto = this.$store.getters.get_all_restaurant
+      this.emitter.emit('getresto', {"data":resto,"status":"foodtruck"})
+    
+        return resto;
+
+
+    }
+  },
+  methods:{
+   
+    getRestaurent(){
+      console.log(this.radius);
+      this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
+    },
+
+    getFoodtrucksByState(){
+      // console.log(this.radius);
+      // this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
+    },
+   
+    onToggle(value,index)
+    {
+     
+       if (this.activeIndex === index) {
+          // console.log("whatopen this.activeIndex",this.activeIndex , index)
+          // console.log("noactive");
+          this.activeIndex = null;
+          this.emitter.emit('marker_result_clicked',{'index':index,'show':false});
+          
+        } else {
+          //  console.log("whatsopen this.activeIndex",this.activeIndex ,index)
+          //  console.log("active");
+           this.activeIndex = index;
+           this.emitter.emit('marker_result_clicked',{'index':index,'show':true});
+          
+        }
+         
+
+    }
+  }
+
+
+};
+</script>
+<style lang="scss">
+
+
+
+</style>

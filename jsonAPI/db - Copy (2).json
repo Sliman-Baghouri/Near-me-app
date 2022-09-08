@@ -1,0 +1,112 @@
+{
+  "whats_open": [
+    {
+      "name": "Porters Coffee House",
+      "distance": "18 mi",
+      "foodtype": "Coffee, Breakfast, Sandwiches",
+      "location": "Watkins Memorial High School",
+      "time": " 6:30am-8:30am",
+      "street": "Etna, OH 43062, USA",
+      "street2": "1954 Warrior Way SW"
+    },
+    {
+      "name": "Porters Coffee House",
+      "distance": "18 mi",
+      "foodtype": "Coffee, Breakfast, Sandwiches",
+      "location": "Watkins Memorial High School",
+      "time": " 6:30am-8:30am",
+      "street": "Etna, OH 43062, USA",
+      "street2": "1954 Warrior Way SW"
+    }
+  ],
+  "vendors": [
+    {
+      "name": "2 Brothers Tacos",
+      "type": "Mexican",
+      "events": "12 upcoming events",
+      "inform": " Family business and authentic "
+    },
+    {
+      "name": "2 Brothers Tacos",
+      "type": "Mexican",
+      "events": "12 upcoming events",
+      "inform": " Family business and authentic "
+    },
+    {
+      "name": "2 Brothers Tacos",
+      "type": "Mexican",
+      "events": "12 upcoming events",
+      "inform": " Family business and authentic "
+    }
+  ],
+    "restaurant": [
+            {
+              "id": "1",
+              "icon":"https://streetfoodfinder.com/static/uploads/vendor/photos/325813/profile_e",
+              "name": "Khyber Restaurant",
+              "description": "Khyber Restaurant is quite a popular dining establishment in Mumbai",
+              "address": "1569 Mueller Drives\nWest Ednamouth, NE 31963",
+              "city": "Mumbai",
+              "state": "Maharashtra",
+              "zip": "42916",
+              "lat": "18.928602",
+              "lng": "72.831741",
+              "distance": "18 mi",
+              "foodtype": "Coffee, Breakfast, Sandwiches",
+              "location": "5th Road, SV Road, Khar West.",
+              "time": " 6:30am-8:30am",
+              "created_at": "2022-04-11 18:22:09",
+              "updated_at": "2022-04-11 18:22:09"
+            },
+            {
+              "id": "2",
+              "icon":"https://streetfoodfinder.com/static/uploads/vendor/photos/404421943/profile_e",
+              "name": "Schulist-Collins",
+              "description": "Iste debitis tenetur voluptates voluptatem sunt facere. Impedit aut ipsum assumenda voluptatem. Mollitia nam aspernatur eveniet tempore. Et impedit corrupti ut eos autem magni.",
+              "address": "8584 Vance Burgs\nKrisland, NJ 34724-2581",
+              "foodtype": "Coffee, Breakfast, Sandwiches",
+              "distance": "18 mi",
+              "city": "Ahmedabad",
+              "state": "Gujarat",
+              "time": " 6:30am-8:30am",
+              "zip": "14637",
+              "lat": "23.0204978",
+              "lng": "72.4396548",
+              "created_at": "2022-04-11 18:22:09",
+              "updated_at": "2022-04-11 18:22:09"
+            },
+            
+            {
+              "id": "3",
+              "icon":"https://streetfoodfinder.com/static/uploads/vendor/photos/628542257/profile_e",
+              "name": "Lind, Ondricka and Mitchell",
+              "description": "Debitis nesciunt autem delectus est. Doloremque vel aperiam in expedita. Sint sunt cupiditate porro in perferendis. Atque tempora sed placeat ea neque voluptas.",
+              "address": "22791 Ernser Keys\nEast Eulahport, MS 76140-3052",
+              "time": " 6:30am-8:30am",
+              "city": "Rajkot",
+              "state": "Gujarat",
+              "zip": "37331-2125",
+              "lat": "22.2736308",
+              "lng": "70.7512555",
+              "created_at": "2022-04-11 18:22:09",
+              "updated_at": "2022-04-11 18:22:09"
+            },
+            {
+              "id": "4",
+              "icon":"https://streetfoodfinder.com/static/uploads/vendor/photos/855619961703677952/profile_e",
+              "name": "Harmonica Club",
+              "description": "Iste debitis tenetur voluptates voluptatem sunt facere. Impedit aut ipsum assumenda voluptatem. Mollitia nam aspernatur eveniet tempore. Et impedit corrupti ut eos autem magni.",
+              "address": "8584 Vance Burgs\nKrisland, NJ 34724-2581",
+              "foodtype": "Coffee, Breakfast, Sandwiches",
+              "distance": "18 mi",
+              "city": "Ahmedabad",
+              "state": "Gujarat",
+              "time": " 6:30am-8:30am",
+              "zip": "14637",
+              "lat": "22.990732",
+              "lng": "72.616531",
+              "created_at": "2022-04-11 18:22:09",
+              "updated_at": "2022-04-11 18:22:09"
+            }
+    ]
+}

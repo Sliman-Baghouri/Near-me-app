@@ -1,0 +1,647 @@
+.searchbar-component,.sidebar-component{
+  -webkit-transition:all 1s ease;
+       -moz-transition:all 1s ease;
+             -o-transition:all 1s ease;
+                   transition:all 1s ease;
+}
+input{background-color: white !important;}
+body{
+  overflow-wrap: unset;
+    /* font-size: 12px; */
+}
+.time-txt{
+  font-size:13px;
+  font-weight: 500;
+  
+}
+.map-component{
+  /* border: 1px solid yellow; */
+  position: relative;
+}
+.sidebar-component{
+  position: absolute;
+/* border: 1px solid red; */
+  left:30px;
+  top:30px;
+  /* background-color: #fff; */
+  /* opacity: .5; */
+  background-color: rgba(255,255,255, 1);
+  height: 650px;
+  
+  /* padding: 11px; */
+
+  border-radius:9px;
+  width: 19rem;
+}
+
+.inner-sidebar{
+  /* border: 2px solid yellow; */
+  height: 650px;
+  position: relative;
+  border-radius:9px;
+}
+
+.sidebar-page-content{
+ margin-top: 20px;
+
+ /* overflow: hidden; */
+ /* border: 2px solid red; */
+}
+.vue-map-container{
+  height: 100vh;
+  width: 100%;
+ 
+  
+}
+.list-business-bar input{
+  
+  background-color: #ef6c26 !important;
+  padding: 4px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  font-size: 14px;
+ 
+}
+.list-business-bar input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+ 
+}
+.list-business-bar a{
+text-decoration: none;
+    display: inline-block;
+    background-color: #fff!important;
+    padding: 5px 20px;
+    border-radius: 3px;
+    border: 2px solid #ef6c26;
+    font-size: 14px;
+    color: #ef6c26;
+    font-size: 14px;
+    text-align: center;
+    padding: 9px;
+    font-weight: 500;
+}
+.list-business-bar a svg{
+  transform: translateY(4px) scale(.8);
+}
+
+.cluster-0{
+  /* border: 1px solid red !important; */
+}
+
+
+.count-open-resto{
+  padding:8px;
+  background: #646464;
+  font-size: 13px;
+  color: #eee;
+}
+.order-ahead a{
+border: 1px solid #204d74;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background: #286090;
+  padding: 4px 0;
+  margin: 5px 0;
+  border-radius: 3px;
+  font-size: 14px;
+
+}
+
+.v-navigation-drawer{
+    /* width: 20rem !important; */
+    /* margin-top: 40px !important; */
+}
+.v-toolbar__content{
+    height: 40px !important;
+    background-color: #ef6c26;
+    color: #fff;
+}
+.va-navbar{
+    height: 35px !important;
+  }
+  .app-layout__content{
+    /* width: 20rem !important; */
+  }
+  
+  
+  .resto-location-font,.location-font{
+    color: #7e899b;
+      font-size: 12px;
+      /* padding: 1px 0; */
+  }
+  .resto-title a:hover{
+  text-decoration: underline;
+  }
+  .resto-location{
+  color: #262727;
+  }
+  
+  
+  .map-location,.icon-text-box{
+   
+    /* padding: 1px 0; */
+    font-size: 13px;
+    font-weight:500;
+    color: #211f1f;
+    
+  }
+  .map-location-name{
+      /* border:1px solid red; */
+      margin-left: 5px;
+      /* color:#555; */
+
+  }
+  .map-clock-name{
+    margin-left: 5px;
+    /* color:#555; */
+  }
+  
+  .inner-resto-list-component,.all-vendor-list{
+    /* border:1px solid black; */
+    max-height: 420px;
+    overflow: auto;
+    /* overflow-y: scroll; */
+    -webkit-overflow-scrolling: touch;
+    padding-top: 12px;
+  }
+ 
+  ::-webkit-scrollbar {
+    width: 8px;
+    /* margin-left: 10px; */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* padding: 20px; */
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+    /* margin-right: 20px; */
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    /* background: rgb(236, 229, 229);  */
+    /* box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px; */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    border-radius: 10px;
+    background: #ef6c26; 
+  }
+  
+  
+  /* new */
+  .resto-detail-container,.vendor-content{
+    border-radius: 5px;
+    padding: 14px 10px;
+    background-color: #fff;
+    cursor: pointer;
+   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.17);
+       margin-bottom: 18px;
+    margin-left: 5px;
+    margin-right: 12px;
+  }
+  .all-details:hover{
+    /* background-color: #ddd; */
+  }
+  .resto-detail-container:hover{
+    /* background-color: #ddd; */
+  }
+  
+  .sidebarbox-font{
+    font-size: 14.8px;
+    width: 100%;
+    
+  }
+  .all-details-block,.vendor-details {
+    width: 100%;
+    padding-left: 10px;
+    /* border: 1px solid pink; */
+  }
+
+  .foodtype-name img{
+      width: 18px;
+      height: 18px;
+      padding-top:0;
+  }
+ 
+  
+  .resto-logo img{
+    width: 50px;
+    height: 50px;
+    margin-top: 20%;
+    border-radius: 50%;
+    border: 1px solid orange;
+  }
+  .resto-title-block{
+    /* border: 1px solid red; */
+  }
+  
+  .resto-title-block .distance{
+    /* margin-left:80px; */
+    font-size: 13px;  
+    /* border: 1px solid black; */
+  
+  
+  }
+  .common-name-link{
+    color: #ef6c26;
+    text-decoration: none;
+  }
+  .resto-name-link{
+    
+    /* border: 1px solid red; */
+    min-width: 74.5%;
+    max-width: 82%;
+  }
+  
+  .resto-name-link:hover{
+    text-decoration: underline;
+  }
+  .resto-detail-container.active{
+    /* background-color:#ddd; */
+  }
+  .vendor-content{
+    /* padding: 3.5px 0; */
+    /* border: 1px solid red; */
+  }
+  .vendor-img img{
+    /* border: 1px solid red; */
+    width: 63px;
+    border-radius: 2px;
+  }
+  .app-layout{
+    /* border: 2px solid blue; */
+  }
+  .app-layout__navbar{
+    border: 1.5px solid black;
+  }
+  .app-layout__content{
+    /* border: 5px solid rgb(4, 255, 0); */
+  }
+  
+  .app-layout__sidebar-wrapper{
+    border: 1px solid yellow;
+  }
+  .v-navigation-drawer__content{
+    overflow: unset !important;
+  }
+  .sidebar-tabs-container{
+    /* border: 1px solid red; */
+  }
+
+  .sidebar-tabs li{
+        list-style: none;
+        display: inline-block;
+        /* border: 1px solid red; */
+      }
+      .sidebar-tabs li a{
+        color: #353434;
+        font-weight: 500;
+        display: inline-block;
+        width: 94px;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 14px;
+        text-decoration: none;
+         /* border: 1px solid red; */
+        border-bottom: 2px solid #fff;
+       
+
+
+      }
+      .sidebar-tabs .router-link-active{
+       color: #ef6c26;
+        border-bottom: 2px solid  #ef6c26 !important;
+      }
+      .sidebar-logo-component{
+        padding: 0px 0px 15px 0px
+        /* border: 1px solid red; */
+
+      }
+      .sidebar-logo-component img{
+        width: 69px;
+      }
+
+      .list-business-bar{
+        /* border: 1px solid; */
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 10px;
+
+      }
+      .inner-sidebar-compnet{
+        border-bottom:2px solid #fff;
+        padding:10px 10px 0 10px;
+      }
+      .open-time-component{
+       font-size: 13px;
+       font-weight: 500;
+        /* border: 1px solid red; */
+        margin: 10px 0;
+        }
+        .timeselectBox{
+         background-color: rgba(0, 0, 0,0.08);
+         width: 80px;
+         font-size: 12px;
+         padding: 2px 5px;
+         outline: none;
+         margin-bottom: 5px;
+        }
+        /* navabar */
+        .searchbar-component{
+          /* border:1px solid red; */
+          position: absolute;
+          top: 30px;
+          left: 30rem;
+          width: 300px;
+
+          
+        }
+        .search-text{
+          font-size: 16px;
+          display: inline;
+          /* margin-left: 100px; */
+          
+      
+      }
+      .down-arrow{
+        border:1px solid #cb510f;
+        background: #f07838;
+        padding: 2px 6px;
+        color: white;
+        font-size: 20px;
+      }
+      .search-text input{
+        /* margin-left: 5px; */
+        border: 1px solid transparent;
+        /* margin-left: 5px; */
+        padding-left: 15px;
+        width: 100%;
+        height: 35px;
+        position: relative;
+        border-radius: 50px;
+        box-shadow: 0 2px 5px 1px rgb(81 51 103 / 16%);
+    
+      }
+      .search-text input::placeholder{
+       /* text-align: center; */
+       /* padding-left: 15px; */
+      }
+      .share-icon img, .gps-icon img{
+        cursor: pointer;
+        background: #ef6c26;
+        padding: 6px;
+        border-radius: 50%;
+       
+      }
+      .share-icon img{
+        width: 30px;
+      }
+      .gps-icon img{
+        
+        
+        position: absolute;
+        top:0px;
+        right: 0px;
+        /* border: 1px solid red; */
+      
+      } 
+      .info-resto-time{
+        margin-left: 5px;
+        /* font-size: 13px; */
+        /* font-weight: 600 */
+      }
+      .info-Schedule{
+       font-weight: 400; 
+      }
+      .info-open-day{
+        font-weight: 550;
+      }
+     
+      .info-restotime-text, .info-resto-text{
+        font-weight: 450;
+        margin-left: 5px;
+      }
+      .resto-name{
+        /* border: 1px solid rgb(14, 7, 7); */
+        width: 100%;
+        padding-left: 2px;
+    }
+    .resto-name a {
+        display: inline-block;
+        margin-bottom: 5px;
+        text-decoration: none;
+        font-size: 13px;
+        color: #ef6c26;
+        font-weight: 500;
+    }
+    .resto-imag img{
+      width: 45px;
+      border-radius: 10px;
+      border:1px solid #fff;
+      box-sizing: border-box;
+
+     
+  }
+  .foodtype-name{
+    background-color: rgba(238,134,79,.26);
+    border: 1px solid #fff;
+    margin: 0 5px 0 0;
+    padding: 2px 6px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 500;
+    display: inline-flex;
+    line-height: 19px;
+  }
+  .info-foodtype{
+    padding-bottom: 5px;
+    /* border: 1px solid red; */
+    /* margin-bottom: 5px; */
+  }
+   /* img{
+    border: 1px solid red !important;
+  } */
+
+  .v-img img{
+    border: 1px solid red !important;
+    width: 500px !important;
+  }
+  map-errors-div{
+    border: 1px solid black;
+  }
+  .festivals-link{
+    font-weight: 500;
+    font-size: 13px;
+  }
+  .resto-detail-container.active,.vendor-content.active {
+    background-color: #ddd !important;
+}
+.view-event-details-button{
+  margin: 8px 0 0 0;
+}
+.view-event-details-button a{
+  border: 1px solid #ef6c26;
+  display: inline-block;
+  padding: 3px 5px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 500;
+  background: #ef6c26;
+  color: #fff;
+
+  
+}
+.festival-open{
+  
+  display: inline-block;
+}
+.festival-distance{
+  margin-left: 10px;
+  display: inline-block;
+  /* border: 1px solid rgb(25, 23, 23); */
+}
+.open-time-component{
+  /* border: 1px solid yellow; */
+}
+.v-application__wrap {
+  flex: 1 1 auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: auto  !important;
+  max-width: 100%;
+  position: relative;
+}
+
+
+.draggable.dragging {
+  user-select: none;
+}
+
+
+.loading-overlay {
+  background: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+   display: flex;
+}
+.find-vendors {margin-bottom: 15px;}
+
+.find-vendors >div {display: flex;}
+
+.find-vendors >div select {position: relative;top: -3px;margin-left: 9px;}
+.google-popup .v-card {
+  font-weight: 200;
+  max-height: 500px !important;
+  height: auto;
+  width: auto !important;
+}
+.v-card--variant-contained {
+  box-shadow: none;
+}
+@media screen and (max-width: 1200px) {
+  body {
+    /* background-color: red; */
+  }
+}
+@media screen and (max-width: 1024px) {
+  body {
+    /* background-color: rgb(255, 0, 179); */
+  }
+}
+@media screen and (max-width: 900px) {
+ 
+  body {
+    /* background-color: rgb(0, 255, 13); */
+  }
+  .searchbar-component {
+    left: 27rem;
+   }
+}
+@media screen and (max-width: 768px) {
+ 
+  .map-component div#vue-map button.gm-control-active.gm-fullscreen-control {
+    top: 70% !important;
+}
+  .searchbar-component {
+    left: 5%;
+    width: 90%;
+    top: 15px;
+   }
+
+  .vue-map {
+      width: 100%;
+      height: 100%;
+  }
+
+  .sidebar-component{
+    bottom: 0;
+    top: 83%;
+    left: 0px;
+    width: 100%;
+  }
+  .vue-map, .vue-map-container {
+    max-height: 720px;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    /* background-color: black; */
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    /* background-color: blue; */
+  }
+}
+.draggable.dragging {
+  user-select: none;
+}
+
+
+.loading-overlay {
+  background: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9998;
+  align-items: center;
+  justify-content: center;
+   display: flex;
+}
+
+.loading-overlay.is-active {
+ 
+}
+
+.sideber-bottom{
+  position: absolute;
+  /* border: 1px solid red; */
+  font-size: 13.5px;
+  color: #666;
+  top: 600px !important;
+  /* text-align: center; */
+  left: 15px;
+  
+}
+
