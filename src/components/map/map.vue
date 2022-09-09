@@ -21,9 +21,45 @@
     rotateControl: false,
     fullscreenControl: true,
     disableDefaultUi: false,
-    
+      styles: [
+          {
+            featureType: 'administrative.locality',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#d59563'}]
+        },
+
+        {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{color: '#grey'}]
+        },
+        {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{color: '#F6BB7F'}]
+        },
+        {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{color: '#DEE2E7'}]
+        },
+        {
+            featureType: 'road.arterial',
+            elementType: 'geometry',
+            stylers: [{color: '#DEE2E7' }]
+
+        }
+
+    ,{
+    featureType: 'landscape',
+    elementType: 'labels',
+    stylers: [
+      { 'visibility': 'off' }
+    ]
+  }
+    ]
   }"
-   map-type-id="terrain"
+   map-type-id="roadmap"
    ref="myMapRef"
     style="width: 500px; height: 550px"
   >
