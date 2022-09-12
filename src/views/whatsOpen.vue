@@ -189,6 +189,9 @@ export default {
                   // }else{
                     // console.warn(this.state)
                    this.emitter.emit('mapFun', {state:this.state, type:'foodtruck'});
+                  //  setTimeout(function(){ 
+                  //       $('.resto-name-link')[0].click(); 
+                  // }, 1000);
 
 
                   // }

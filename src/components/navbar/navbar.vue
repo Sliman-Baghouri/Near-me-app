@@ -35,7 +35,6 @@ export default{
     getcurrnetlocation(){
       
        this.emitter.emit('getcurrent_location',{'currentlocation':true});
-      
     },
     setPlace(place){
 
@@ -46,7 +45,8 @@ export default{
       //  this.emitter.emit('findDistance',{'placedata':placedata,'status':'autosearch'});
 
        this.emitter.emit('markers_fetched',{'placedata':placedata,'status':'autosearch'});
-      
+              console.log('arrived')
+
       
       
     },

@@ -294,6 +294,7 @@ google_maps_geocoder.geocode(
                 this.$store.dispatch('AllFoodtrucks',{'center':allStates[state.state]});
             }
       })
+     
     },
 
     setSerchedLocation(){
