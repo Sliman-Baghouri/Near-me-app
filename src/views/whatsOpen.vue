@@ -32,6 +32,7 @@
             <option value="QLD">QLD</option>
             <option selected="selected" value="VIC">VIC</option>
             <option value="NSW">NSW</option>
+            <option value="WA">WA</option>
           </select>
 
       </span>

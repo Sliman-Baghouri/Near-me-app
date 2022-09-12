@@ -281,7 +281,8 @@ google_maps_geocoder.geocode(
             VIC: {lat: -37.8136276,lng: 144.9630576},
             QLD: {lat:-27.4704528, lng:153.0260341},
             NSW: {lat: -33.8688197,lng: 151.2092955},
-            SA: {lat: -34.9284989, lng: 138.6007456}
+            SA:  {lat: -34.9284989, lng: 138.6007456},
+            WA:  {lat:-31.953512,   lng:115.857048}
         }
 
      this.emitter.on('mapFun',(state)=>{ 
@@ -316,7 +317,7 @@ google_maps_geocoder.geocode(
     },
      AddMarkToFindLocation(data){
 
-        console.log('hey',data);
+        console.log('hey fest',data);
        this.markers = [];
       var marker,i;
       data;
