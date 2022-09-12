@@ -152,7 +152,7 @@ export default {
   
   data() {
     return {
-    center: { lat:-37.8136276,lng:144.9630576},
+    center: { lat:-33.8688197,lng:151.2092955},
     //  center: { lat:0,lng:0},
      currentlocation:{ lat:-37.8136276,lng:144.9630576},
       shape : {

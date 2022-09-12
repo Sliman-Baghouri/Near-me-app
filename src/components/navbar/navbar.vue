@@ -2,7 +2,7 @@
          <div class="search-text">
          
           <GMapAutocomplete
-                  value="Melbourne VIC, Australia"
+                  value="Sydney NSW, Australia"
                     class='autocomplete'
                     id="searchTextField"
                     :options="{

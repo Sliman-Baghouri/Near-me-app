@@ -30,8 +30,8 @@
           <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >    
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
-            <option selected="selected" value="VIC">VIC</option>
-            <option value="NSW">NSW</option>
+            <option value="VIC">VIC</option>
+            <option selected="selected" value="NSW">NSW</option>
             <option value="WA">WA</option>
           </select>
 
@@ -139,7 +139,7 @@ export default {
       activeIndex:null,
       radius:6,
       openday:'today',
-      state:'VIC',
+      state:'NSW',
       places:[],
     }
   },
