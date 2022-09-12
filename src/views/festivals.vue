@@ -2,32 +2,21 @@
 <div class="vendor-component sidebar-page-content">
      <div class="open-time-component">
       <div class="festival-open">
-      <p class="time-txt mr-2"> Show Events </p>
-        
-          <select class="timeselectBox" v-model="openday" @change="getAllFestivals">
-         <option value="today">Today</option>
-          <!-- <option value="tomorrow">Tomorrow</option> -->
-          <option value="thisweek">This Week</option>
-          <option value="thisweekned">This Weekend</option>
-          <option value="nextweek">Next Week</option>
-          </select>
        </div>
-        <div class="festival-distance">
-          <p class="time-txt ml-2 mr-2"> Within </p>
-         
-          <select class="timeselectBox" v-model="radius" @change="getAllFestivals">    
-         <option value="1">1 Km</option>
-						<option value="2"> 2Km</option>
-						<option value="4">4 Km</option>
-						<option value="6">6 Km</option>
-            <option value="10">10 Km</option>
-            <option value="15">15 Km</option>
-						<option value="20">20 Km</option>
-						<option value="30">30 Km</option>
-            <option value="40">40 Km</option>
-          
-				
-					</select>
+        <div class="festival-distance">         
+      
+               <!-- By State -->
+
+        <span class="time-txt ml-2 mr-2"> State </span>
+          <span>
+          <select v-model="state" class="timeselectBox stateSelect stateSelectFest" @change="getAllFestivals">    
+            <option value="SA">SA</option>
+            <option value="QLD">QLD</option>
+            <option value="VIC">VIC</option>
+            <option selected value="NSW">NSW</option>
+            <option value="WA">WA</option>
+          </select>
+        </span>
       </div>
       </div>
  <!-- {{festivals}} -->
@@ -74,6 +63,8 @@
 </template>
 
 <script>
+// import $ from "jquery";
+
 export default {
   name: 'vendor-component',
   data() {
@@ -81,7 +72,8 @@ export default {
      festivals:"festivals",
      radius:6,
      activeIndex:null,
-     openday:"today"
+     openday:"today",
+     state:'NSW'
     }
   },
   mounted()
@@ -105,9 +97,13 @@ export default {
        }
   },
   methods:{
-    getAllFestivals()
-    {
-         this.emitter.emit('getAllFestivals',{"radius":this.radius,"status":"festivals","day":this.openday})
+    getAllFestivals(){
+
+              this.emitter.emit('mapFun', {state:this.state, type:'festivals'});
+                  //  setTimeout(function(){ 
+                  //       $('.festivals-link')[0].click(); 
+                  // }, 3000);
+         // this.emitter.emit('getAllFestivals',{"radius":this.radius,"status":"festivals","day":this.openday})
     },
     onToggle(index)
     {

@@ -287,7 +287,12 @@ google_maps_geocoder.geocode(
 
      this.emitter.on('mapFun',(state)=>{ 
             console.log(state)
-            this.$store.dispatch('AllFoodtrucks',{'center':allStates[state.state]});
+
+            if(state.type.includes('festivals')){
+                this.$store.dispatch('Festivals',{'center':allStates[state.state]})
+            }else{
+                this.$store.dispatch('AllFoodtrucks',{'center':allStates[state.state]});
+            }
       })
     },
 

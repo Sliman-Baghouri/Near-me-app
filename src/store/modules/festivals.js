@@ -1,4 +1,5 @@
 import FestivalsAPI from '../../API/festivals.js';
+import $ from "jquery";
 
 export const festivals = {
 
@@ -7,15 +8,18 @@ export const festivals = {
     },
     actions:{
         
-        Festivals({commit},data)
-        {
+        Festivals({commit},data){
      
                 
 
                 FestivalsAPI.getAllFestivals(data)
             .then(function(response){
-              
+
                commit('SET_FESTIVALS',response.data);
+                   setTimeout(function(){ 
+                        $('.festivals-link')[0].click(); 
+                  }, 1000);
+
             })
             .catch(function(){
                 console.log(3);

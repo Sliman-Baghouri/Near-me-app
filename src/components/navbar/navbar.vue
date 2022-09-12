@@ -63,14 +63,7 @@ export default{
 
         $(document).ready(function() {
         
-            $(".stateSelect").change(function(e){
-
-                   that.emitter.emit('mapFun', {state:$(this).val()});
-                   setTimeout(function(){ 
-                        $('.resto-name-link')[0].click(); 
-                  }, 2000);
-
-            })
+         
         });
 
   }

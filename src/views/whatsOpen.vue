@@ -27,7 +27,7 @@
 
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
-          <select class="timeselectBox stateSelect"  @change="getFoodtrucksByState">    
+          <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >    
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option selected="selected" value="VIC">VIC</option>
@@ -120,6 +120,7 @@
 
 </template>
 <script>
+// import $ from "jquery";
 
 export default {
   name: "app-sidebar",
@@ -157,12 +158,44 @@ export default {
   methods:{
    
     getRestaurent(){
+            console.log('second')
+
       console.log(this.radius);
       this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
     },
 
     getFoodtrucksByState(){
       // console.log(this.radius);
+
+
+                  // let typeClass = $(this).attr('class');
+
+                  // that.emitter.emit('mapFun', {state:$(this).val(), type:typeClass});
+                  //    setTimeout(function(){ 
+                  //         if(typeClass.includes('stateSelectFest')){
+                  //           $('.festivals-link')[0].click(); 
+                  //         }else{
+                  //           $('.resto-name-link')[0].click(); 
+                  //         }
+                  //   }, 3000);
+
+
+                  // if($(this).hasClass('stateSelectFest')){
+                  //   that.emitter.emit('mapFun', {state:$(this).val()});
+                  //    setTimeout(function(){ 
+                  //         $('.festivals-link')[0].click(); 
+                  //   }, 2000);
+
+                  // }else{
+                    // console.warn(this.state)
+                   this.emitter.emit('mapFun', {state:this.state, type:'foodtruck'});
+
+
+                  // }
+  
+
+
+
       // this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
     },
    
