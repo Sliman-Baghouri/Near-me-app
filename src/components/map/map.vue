@@ -104,19 +104,50 @@
         </a>
         <ul class="floatingMenu">
             <li>
-                <a href="https://foodtrucker.com.au/add-listing/?listing_type=catering-request" target="_blank">Post Request 
+                <a href="https://foodtrucker.com.au/add-listing/?listing_type=catering-request" target="_blank">Place Catering Request 
 
                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m143.9375 382.8125c18.640625-14.515625 30.664062-37.148438 30.664062-62.546875 0-43.707031-35.5625-79.265625-79.269531-79.265625s-79.265625 35.558594-79.265625 79.265625c0 25.398437 12.023438 48.03125 30.660156 62.546875-26.304687 15.648438-46.726562 45.203125-46.726562 82.054688v32.132812c0 8.285156 6.714844 15 15 15h160.667969c8.28125 0 15-6.714844 15-15v-32.132812c0-36.84375-20.417969-66.402344-46.730469-82.054688zm-97.871094-62.546875c0-27.164063 22.101563-49.265625 49.269532-49.265625 27.164062 0 49.265624 22.101562 49.265624 49.265625 0 27.167969-22.101562 49.269531-49.265624 49.269531-27.167969 0-49.269532-22.101562-49.269532-49.269531zm114.601563 161.734375h-130.667969v-17.132812c0-36.085938 29.195312-65.332032 65.332031-65.332032 36.085938 0 65.332031 29.195313 65.332031 65.332032v17.132812zm0 0" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m448.800781 0h-192.800781c-34.90625 0-63.199219 28.242188-63.199219 63.199219v289.199219c0 12.269531 14.070313 19.445312 24 12l60.265625-45.199219h171.734375c34.90625 0 63.199219-28.242188 63.199219-63.199219v-192.800781c0-34.90625-28.242188-63.199219-63.199219-63.199219zm33.199219 256c0 18.351562-14.839844 33.199219-33.199219 33.199219h-176.734375c-3.246094 0-6.402344 1.054687-9 3l-40.265625 30.199219v-259.199219c0-18.351563 14.839844-33.199219 33.199219-33.199219h192.800781c18.351563 0 33.199219 14.839844 33.199219 33.199219zm0 0" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m432.734375 80.332031h-160.667969c-8.285156 0-15 6.71875-15 15 0 8.285157 6.714844 15 15 15h160.667969c8.28125 0 15-6.714843 15-15 0-8.28125-6.714844-15-15-15zm0 0" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m432.734375 144.601562h-160.667969c-8.285156 0-15 6.714844-15 15 0 8.28125 6.714844 15 15 15h160.667969c8.28125 0 15-6.71875 15-15 0-8.285156-6.714844-15-15-15zm0 0" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m352.398438 208.867188h-80.332032c-8.285156 0-15 6.714843-15 15 0 8.285156 6.714844 15 15 15h80.332032c8.285156 0 15-6.714844 15-15 0-8.285157-6.714844-15-15-15zm0 0" fill="#ffffff" data-original="#000000" class=""/></g></svg>
 
                 </a>
             </li>
             <li>
-                <a href="https://foodtrucker.com.au/add-listing/?listing_type=event" target="_blank">Add Your Event
+                <a href="https://foodtrucker.com.au/add-listing/?listing_type=event" target="_blank">List Your Event
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path xmlns="http://www.w3.org/2000/svg" d="m456 48h-48v-8a24 24 0 0 0 -48 0v8h-80v-8a24 24 0 0 0 -48 0v8h-80v-8a24 24 0 0 0 -48 0v8h-48a40.045 40.045 0 0 0 -40 40v368a40.045 40.045 0 0 0 40 40h400a40.045 40.045 0 0 0 40-40v-368a40.045 40.045 0 0 0 -40-40zm-80-8a8 8 0 0 1 16 0v48a8 8 0 0 1 -16 0zm-128 0a8 8 0 0 1 16 0v48a8 8 0 0 1 -16 0zm-128 0a8 8 0 0 1 16 0v48a8 8 0 0 1 -16 0zm-64 24h48v24a24 24 0 0 0 48 0v-24h80v24a24 24 0 0 0 48 0v-24h80v24a24 24 0 0 0 48 0v-24h48a24.028 24.028 0 0 1 24 24v56h-448v-56a24.028 24.028 0 0 1 24-24zm400 416h-400a24.028 24.028 0 0 1 -24-24v-296h448v296a24.028 24.028 0 0 1 -24 24z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m440 216h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m280 376h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m200 216h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m120 296h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m200 296h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m120 376h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m200 376h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m369.208 248.983-40-6.112-17.966-38.271a8 8 0 0 0 -14.484 0l-17.958 38.271-40 6.112a8 8 0 0 0 -4.518 13.5l29.181 29.907-6.9 42.326a8 8 0 0 0 11.753 8.284l35.684-19.724 35.684 19.724a8 8 0 0 0 11.766-8.289l-6.9-42.326 29.181-29.907a8 8 0 0 0 -4.518-13.5zm-38.934 35.117a8 8 0 0 0 -2.17 6.875l4.9 30.051-25.136-13.9a8 8 0 0 0 -7.74 0l-25.136 13.9 4.9-30.051a8 8 0 0 0 -2.17-6.875l-21.122-21.652 28.833-4.4a8 8 0 0 0 6.033-4.509l12.534-26.711 12.535 26.706a8 8 0 0 0 6.033 4.509l28.833 4.4z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m440 296h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m440 376h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/><path xmlns="http://www.w3.org/2000/svg" d="m360 376h-32a8 8 0 0 0 -8 8v32a8 8 0 0 0 8 8h32a8 8 0 0 0 8-8v-32a8 8 0 0 0 -8-8zm-8 32h-16v-16h16z" fill="#ffffff" data-original="#000000" class=""/></g></svg>
 
 
                 </a>
             </li>
+                <li>
+                <a href="https://help.foodtrucker.com.au/" target="_blank">Help
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g>
+<g xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M256,358.4c-5.652,0-10.24,4.588-10.24,10.24s4.588,10.24,10.24,10.24s10.24-4.588,10.24-10.24S261.652,358.4,256,358.4z" fill="#ffffff" data-original="#000000"/>
+  </g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <circle cx="256" cy="368.64" r="20.48" fill="#ffffff" data-original="#000000"/>
+  </g>
+</g>
+<g xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M256,0C114.831,0,0,114.831,0,256s114.831,256,256,256s256-114.831,256-256S397.169,0,256,0z M256,491.52    C126.136,491.52,20.48,385.864,20.48,256S126.136,20.48,256,20.48S491.52,126.136,491.52,256S385.864,491.52,256,491.52z" fill="#ffffff" data-original="#000000"/>
+  </g>
+</g><g xmlns="http://www.w3.org/2000/svg">
+ <g>
+    <path d="M326.513,181.637c-5.059-28.856-28.754-52.552-57.61-57.631c-21.279-3.727-42.742,1.966-58.982,15.626    c-16.261,13.681-25.6,33.69-25.6,54.927c0,5.652,4.588,10.24,10.24,10.24s10.24-4.588,10.24-10.24    c0-15.176,6.677-29.471,18.309-39.219c11.796-9.892,26.829-13.865,42.271-11.141c20.521,3.604,37.376,20.48,41.001,41.001    c3.891,22.2-6.185,43.5-25.702,54.231c-21.873,12.063-34.918,32.891-34.918,57.528v20.48c0,5.652,4.588,10.24,10.24,10.24    s10.24-4.588,10.199-10.24v-22.282c0-15.278,9.114-29.409,24.33-37.806C317.419,242.565,331.878,212.132,326.513,181.637z" fill="#ffffff" data-original="#000000"/></g></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg">
+</g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g><g xmlns="http://www.w3.org/2000/svg"></g></g></svg>
+
+                </a>
+            </li>  
         </ul>
     </div>
 </div>
@@ -653,7 +684,7 @@ google_maps_geocoder.geocode(
     border: 5px solid #F28F48;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 30%);
     opacity: 1;
-    transition: all 0.4s;
+    transition: all 0.2s;
 }
 
 .floatingButton .fa {
@@ -699,7 +730,7 @@ google_maps_geocoder.geocode(
 
 .floatingButton .fa {
     transform: rotate(0deg);
-    transition: all 0.4s;
+    transition: all 0.2s;
 }
 
 .floatingButton.open .fa {
@@ -731,7 +762,7 @@ google_maps_geocoder.geocode(
     overflow: hidden;
     text-decoration: none;
     white-space: nowrap;
-    transition: all 0.4s;
+    transition: all 0.2s;
     /* -webkit-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22);
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.22); */
     -webkit-box-shadow: 1px 3px 5px rgba(211, 224, 255, 0.5);
