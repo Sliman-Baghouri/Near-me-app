@@ -5,7 +5,7 @@
      <div class="inner-sidebar-compnet dragger">
        <!-- start logo component -->
          <div class="sidebar-logo-component d-flex justify-content-between align-items-center">
-         <div class="logo-img"><img  :src="require('../../assets/icons/foodtruck.png')" /></div>
+         <div class="logo-img"><img  :src="require('../../assets/icons/Fb-Logo-removebg-preview.png')" /></div>
          <!-- <div class="list-business-bar"><input type="text" placeholder="List your business"/></div> -->
          <!-- <br> -->
          <div class="list-business-bar"><a href="https://www.foodtrucker.com.au/add-listing/?listing_type=foodtruck" target="_blank">List Your Business <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,5 +109,9 @@ export default {
 .sideber-bottom{
   position: static;
   text-align: center;
+}
+
+.sidebar-logo-component img{
+    width: 85px !important;
 }
 </style>

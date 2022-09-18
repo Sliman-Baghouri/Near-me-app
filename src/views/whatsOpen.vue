@@ -245,3 +245,9 @@ export default {
 };
 </script>
 <style src="@vueform/multiselect/themes/default.css"></style>
+<style>
+
+.multiselect-tag {
+    background: #F28F48 !important;
+}
+</style>
