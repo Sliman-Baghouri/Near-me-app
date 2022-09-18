@@ -27,7 +27,7 @@
 
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
-          <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >    
+          <select class="timeselectBox stateSelect"  v-model="state" @change="getFoodtrucksByState" >    
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option value="VIC">VIC</option>
@@ -36,6 +36,11 @@
           </select>
 
       </span>
+      <br>
+      <span class="time-txt" style="margin-bottom:5px;margin-top:5px;display: block;">Filter By Cuisine</span>
+
+        <Multiselect  autocomplete="off" v-model="value" :options="options" mode="tags" :searchable="true" @change="filterChanged" />
+
       </div>
    
      <div>
@@ -119,19 +124,25 @@
     </div>
 
 </template>
+
 <script>
+
 // import $ from "jquery";
+// import dropdowns from "semantic-ui-dropdown";
+
+// import VueMultiselect from 'vue-multiselect'
+  import Multiselect from '@vueform/multiselect'
 
 export default {
   name: "app-sidebar",
    mounted() {  
      this.getRestaurent();
      
-      
    },
   components: {
     // MenuAccordion,
-    // MenuMinimized,
+    // VueMultiselect,
+    Multiselect
   },
  
   data() {
@@ -141,27 +152,34 @@ export default {
       openday:'today',
       state:'NSW',
       places:[],
+      options: ['BBQ', 'Coffee', 'Desserts', "Greek", "Mexican", "Burgers and Hotdogs", "Finger food", "Vegetarian","Vietnamese", "Japanese", "Vegan", "Donuts", "Spanish","Brazilian","Bubble tea","Fish and chips","French"," German Food","Gluten free","Ice cream","Indian"]
+
     }
   },
   computed: {
-    AllRestaurant()
-    {
+    AllRestaurant(){
      
       var resto = this.$store.getters.get_all_restaurant
       this.emitter.emit('getresto', {"data":resto,"status":"foodtruck"})
-    
+
+
         return resto;
 
 
-    }
+    },
   },
-  methods:{
-   
-    getRestaurent(){
-            console.log('second')
 
-      console.log(this.radius);
-      this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
+ 
+  methods:{
+    filterChanged(value){
+      this.getRestaurent(value)
+    },
+    getRestaurent(cuisine){
+
+      this.emitter.emit('getOpenRestaurent',{"cuisine": cuisine, "radius":this.radius,'day':this.openday,"status":"resturent"})
+
+      console.log('cuisines:',cuisine)
+
     },
 
     getFoodtrucksByState(){
@@ -226,8 +244,4 @@ export default {
 
 };
 </script>
-<style lang="scss">
-
-
-
-</style>
+<style src="@vueform/multiselect/themes/default.css"></style>

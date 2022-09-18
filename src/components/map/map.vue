@@ -64,6 +64,7 @@
     style="width: 500px; height: 550px"
   >
     <!-- <GMapCluster> -->
+ 
        <GMapMarker
           :key="index"
           v-for="(m, index) in markers"
@@ -73,13 +74,14 @@
          :icon= '{
           url: m.icon,
           alt:"foodtrucker",  
-        
+        className: "my-box",
+
+          // shape:{coords:[17,17,18],type:"circle"},
           scaledSize: {width: 50, height:50},
           labelOrigin: {x: 16, y: -10}
       }'
 
           @click="toggleInfoWindow(m,index)"
-          
       >
         
       
@@ -194,7 +196,7 @@ export default {
     activator:true,
     props:{ "aria-haspopup": "dialog", "aria-expanded": "true" } ,
     isActive:true,
-     zoom: 11,
+     zoom: 13,
      searchStatus:false,
     startLocation:'',
     endLocation:'',
@@ -527,12 +529,11 @@ google_maps_geocoder.geocode(
     },
     getOpenRestaurent(){
         this.emitter.on('getOpenRestaurent',(data)=>{
-           if(data)
-           {
+           if(data){
               this.day = data.day;
               this.mapdataType=data.status;
                this.radius = data.radius; 
-             return   this.$store.dispatch('AllRestaurant',{"radius":this.radius,'center':this.center,'day':this.day});
+             return   this.$store.dispatch('AllRestaurant',{"cuisine":data.cuisine, "radius":this.radius,'center':this.center,'day':this.day});
               
             }
 
@@ -781,6 +782,5 @@ google_maps_geocoder.geocode(
     text-decoration: none;
 }
 
-
-
+ 
 </style>

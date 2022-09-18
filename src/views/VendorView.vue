@@ -1,108 +1,219 @@
 <template>
-<div class="vendor-component sidebar-page-content">
- <div class="find-vendors">
-   <div>
-     <div class="time-txt">Within</div>
-     <select class="timeselectBox" v-model="radius" @change="getallvedors">    
-          <option value="1">1 Km</option>
-						<option value="2"> 2Km</option>
-						<option value="4">4 Km</option>
-						<option value="6">6 Km</option>
+    <div class="sidebar-page-content">
+       <div class="open-time-component">
+     <!--  <span class="time-txt mr-2"> Open </span>
+        <span>
+          <select class="timeselectBox" v-model="openday" @change="getRestaurent">
+          <option value="today">Today</option>
+          <option value="tomorrow">Tomorrow</option>
+          <option value="withinaweek">This Week</option>
+          </select>
+       </span>
+          <span class="time-txt ml-2 mr-2"> Within </span>
+          <span>
+          <select class="timeselectBox" v-model="radius" @change="getRestaurent">    
+            <option value="1">1 Km</option>
+            <option value="2"> 2Km</option>
+            <option value="4">4 Km</option>
+            <option value="6">6 Km</option>
             <option value="10">10 Km</option>
             <option value="15">15 Km</option>
-						<option value="20">20 Km</option>
-						<option value="30">30 Km</option>
+            <option value="20">20 Km</option>
+            <option value="30">30 Km</option>
             <option value="40">40 Km</option>
-          
-						<option value="any">Any Km  </option>
           </select>
-   </div>
+        </span> -->
+        <!-- By State -->
 
- </div>
+        <span class="time-txt ml-2 mr-2"> State </span>
+          <span>
+          <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >    
+            <option value="SA">SA</option>
+            <option value="QLD">QLD</option>
+            <option value="VIC">VIC</option>
+            <option selected="selected" value="NSW">NSW</option>
+            <option value="WA">WA</option>
+          </select>
 
-<div class="all-vendor-list">
-   <div v-if="AllVendors.length != 0">
-    <div class="vendor-content d-flex sidebarbox-font " :class="{active: activeIndex == index}"  @click="onToggleLink(index)" :isActive="activeIndex === index" v-for="(value, index) in AllVendors" :key="index">
-      <div class="resto-logo">
-         <!-- <img :src="require('../assets/profile.png')" > -->
-         <img :src="value.logo" >
+      </span>
       </div>
-      <div class="vendor-details all-details"  >
-        <a href="#" class="common-name-link">{{value.name}}</a>
+   
+     <div>
+
+  </div>
+
+  <div class="all-resto-list-component">
+    <!-- <div class="count-open-resto">
+        <span>Today(4/2)</span>
+    </div> -->
+
+    <div class="inner-resto-list-component">
+      <!-- resto list  -->
+      
+       <div  v-if="AllRestaurant.length != 0">
         
-         <div class="location-font">{{value.type}}</div>
-          <p class="resto-location-font">
+      <div class="resto-detail-container" :class="{active: activeIndex == index}" @click="onToggle(value,index)" :isActive="activeIndex === index"  v-for="(value, index) in AllRestaurant" :key="index"  
+      >
+        <div class="inner-detail-contailer d-flex">
+
+          <div class="resto-logo">
+           <img :src="value.logo" >
+            <!-- <img :src="require('../assets/profile.png')" > -->
+           <!-- <img :src=require('../../public/img/profile.png') > -->
+            </div>
+            <div class="all-details-block sidebarbox-font ">
+              <div class="resto-title-block">
+                <a href="#" class="resto-name-link common-name-link">{{value.name}}</a>
+                <!-- <span class="distance">{{value.distance}}</span> -->
+              </div>
+               <div class="resto-location">
+               <p class="resto-location-font">
                   <span  v-for="(food, index) in  value.categories" :key="index">
-                  <span v-if="index < 3">
                     {{food.name}} ,
-                    </span>
                   </span>
                 
 
                  </p>
-          <div class="events icon-text-box"> {{value.events}}</div>
-          <div class="vendor-info icon-text-box"><i class="fa fa-info-circle" aria-hidden="true"></i>
-             {{value.description}}
+             </div>
+              <div class="map-location icon-text-box">
+              <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+              <span class="map-location-name">{{value.address.substring(0,25)+".."}}</span>
+             
+            </div>
+            <div class="icon-text-box">
+            <!-- <span> value.vicinity.substring(0,50)+".."<i class="fa-solid fas-clock"></i></span> -->
+            <!-- <font-awesome-icon icon="fa-solid fa-clock" /> -->
+           <span><i class="fa fa-clock"></i></span>
+            <font-awesome-icon icon="clock" />
+            
+            <span class="map-clock-name">{{value.time}}</span>
+            </div>
+
+
+            </div>
+           
+
           </div>
+           <div class="order-ahead" v-if="value.OrderAhead">
+             <div>
+               <a href="#">Order Ahead</a>
+             </div>
+
+           </div>
+
 
       </div>
-      
       </div>
-</div>
-<div v-else>
- No data found
-</div>
-      
+      <div v-else>
+        No data found
+      </div>
+      <div >
 
-  
-  </div>    
-</div>
+      </div>
+
+      <!-- end resto list -->
+          </div>
+  </div>
+    
+
+    </div>
+
 </template>
-
 <script>
+// import $ from "jquery";
+
 export default {
-  name: 'vendor-component',
-  data(){
-return{
-  radius:'any',
-    activeIndex:null,
-}
+  name: "app-sidebar",
+   mounted() {  
+     this.getRestaurent();
+     
+      
+   },
+  components: {
+    // MenuAccordion,
+    // MenuMinimized,
   },
-  props: {
-    msg: String
-  },
-  mounted()
-  {
-    this.getallvedors();
+ 
+  data() {
+    return {
+      activeIndex:null,
+      radius:6,
+      openday:'today',
+      state:'NSW',
+      places:[],
+    }
   },
   computed: {
-    AllVendors()
+    AllRestaurant()
     {
-        var vendors = this.$store.getters.get_all_vedors;
-        this.emitter.emit('getresto', {"data":vendors,"status":"vendors"})
-        return this.$store.getters.get_all_vedors;
+     
+      var resto = this.$store.getters.get_all_restaurant
+      this.emitter.emit('getresto', {"data":resto,"status":"foodtruck"})
+    
+        return resto;
 
-        // return this.$store.state.tagslist;
 
     }
   },
   methods:{
-    getallvedors()
-    {
-        this.emitter.emit('getAllVendors',{"radius":this.radius,"status":"vendors"})
+   
+    getRestaurent(){
+            console.log('second')
+
+      console.log(this.radius);
+      this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
     },
-    onToggleLink(index)
+
+    getFoodtrucksByState(){
+      // console.log(this.radius);
+
+
+                  // let typeClass = $(this).attr('class');
+
+                  // that.emitter.emit('mapFun', {state:$(this).val(), type:typeClass});
+                  //    setTimeout(function(){ 
+                  //         if(typeClass.includes('stateSelectFest')){
+                  //           $('.festivals-link')[0].click(); 
+                  //         }else{
+                  //           $('.resto-name-link')[0].click(); 
+                  //         }
+                  //   }, 3000);
+
+
+                  // if($(this).hasClass('stateSelectFest')){
+                  //   that.emitter.emit('mapFun', {state:$(this).val()});
+                  //    setTimeout(function(){ 
+                  //         $('.festivals-link')[0].click(); 
+                  //   }, 2000);
+
+                  // }else{
+                    // console.warn(this.state)
+                   this.emitter.emit('mapFun', {state:this.state, type:'foodtruck'});
+                  //  setTimeout(function(){ 
+                  //       $('.resto-name-link')[0].click(); 
+                  // }, 1000);
+
+
+                  // }
+  
+
+
+
+      // this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
+    },
+   
+    onToggle(value,index)
     {
-     
-     
      
        if (this.activeIndex === index) {
-       
+          // console.log("whatopen this.activeIndex",this.activeIndex , index)
+          // console.log("noactive");
           this.activeIndex = null;
           this.emitter.emit('marker_result_clicked',{'index':index,'show':false});
           
         } else {
-         
+          //  console.log("whatsopen this.activeIndex",this.activeIndex ,index)
+          //  console.log("active");
            this.activeIndex = index;
            this.emitter.emit('marker_result_clicked',{'index':index,'show':true});
           
@@ -110,10 +221,13 @@ return{
          
 
     }
-  },
-  created()
-  {
- 
   }
-}
+
+
+};
 </script>
+<style lang="scss">
+
+
+
+</style>

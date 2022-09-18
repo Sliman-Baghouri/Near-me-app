@@ -17,17 +17,17 @@
 
                         </div>           
                         
-                        <div v-if="content.infotype=='vendors'">
+                        <div  v-if="isCustomizePage">
                             <div class="view-event-details-button">
                               
-                            <a  v-bind:href="content.url" target="_blank">View Business</a>
+                            <a  v-bind:href="content.url" target="_blank">Hire Business <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
                             </div>
 
                         </div> 
                     </div>
                     <div class="info-close-btn" v-if="content.infotype=='foodtruck'">
-                             <span class="share-icon" @click="findDistance"><img :src="require('../../assets/icons/Path.png')" ></span>
-                     </div>
+<!--                              <span class="share-icon" @click="findDistance"><img :src="require('../../assets/icons/Path.png')" ></span>
+ -->                     </div>
                     
                     
                     <!-- <h3 class="headline mb-0">{{content}}</h3>
@@ -35,7 +35,7 @@
                 </div>
             </div>
                 <div class="other-details">
-                <div class="resto-schedule" v-if="content.infotype !=='vendors'">
+                <div class="resto-schedule" v-if="!isCustomizePage">
                         <span class="info-Schedule">Schedule for </span><span class="info-open-day">Today</span>
                         
                              <span class="info-resto-time"><i class="fa fa-clock"></i></span><span class="info-restotime-text">{{content.time}}</span>
@@ -77,7 +77,21 @@
                 cusineURL2:"-near-me/"
             }
         },
+        computed: {
+        },
 
+ watch: {
+  $route: {
+     immediate: true,
+     handler() {
+         if(this.$route.path == '/vendors') {
+           this.isCustomizePage = true;
+         } else {
+            this.isCustomizePage = false;
+         }
+     }
+  }
+},
         created(){
             console.log(this.content)
         },
@@ -157,16 +171,42 @@ max-height: 200px;
 }
 
 .resto-detail a {
-    color: blue;
+    color: #232323;
 
     /* font-size:14px; */
-    font-weight: 400;
+    font-weight: normal;
     /* text-decoration: none;    */
 }
 .address-head{
     font-weight: 550;
     margin-bottom: 3px;
 }
+
+.view-event-details-button a{
+
+    border-radius: 0 !important;
+    padding: 7px !important;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 5%);
+}
+
+.view-event-details-button svg{
+    width: 15px;
+    height: 15px;
+    transform: translateY(3px);
+    margin-left: 14px;
+}
+
+
+.foodtype-name{
+    border-radius: 0 !important;
+}
+
+.resto-imag img {
+    border-radius: 100% !important;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
+}
+
+
 /* .resto-detail{
    
     width: 100%;

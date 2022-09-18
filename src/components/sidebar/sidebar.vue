@@ -17,13 +17,10 @@
         
         <div class="sidebar-tabs-container">
             <ul class="sidebar-tabs">
-    
-            <li><router-link  to="/whats-open" class="border-right"> Foodtrucks</router-link></li>
+            <li><router-link  to="/vendors" class="border-right">Vendors</router-link></li>       
             <li><router-link  to="/festivals" class="border-right">Festivals</router-link></li>
-            <!-- <li><router-link  to="/vendors" class="border-right">Vendors</router-link></li> -->
-          
+            <li><router-link  to="/whats-open" class="border-right">Whats open</router-link></li>   
             </ul>
-
              <div>
           <router-view/>
             </div>
@@ -96,12 +93,21 @@ export default {
 // }
 </style>
 
-<style lang="scss" scoped>
-.va-sidebar {
-  flex-shrink: 0;
+<style lang="css" scoped>
+
+.sidebar-component{
+    height: 93% !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-// .va-sidebar--minimized {
-//   width: auto !important;
-// }
+.sidebar-component::-webkit-scrollbar {
+    background: transparent; /* Chrome/Safari/Webkit */
+  width: 0px;
+}
+
+.sideber-bottom{
+  position: static;
+  text-align: center;
+}
 </style>
