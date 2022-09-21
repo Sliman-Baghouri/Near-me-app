@@ -36,6 +36,11 @@
           </select>
 
       </span>
+            <br>
+      <span class="time-txt" style="margin-bottom:5px;margin-top:5px;display: block;">Filter By Cuisine</span>
+
+        <Multiselect  autocomplete="off" v-model="value" :options="options" mode="tags" :searchable="true" @change="filterChanged" />
+
       </div>
    
      <div>
@@ -121,6 +126,7 @@
 </template>
 <script>
 // import $ from "jquery";
+  import Multiselect from '@vueform/multiselect'
 
 export default {
   name: "app-sidebar",
@@ -132,6 +138,8 @@ export default {
   components: {
     // MenuAccordion,
     // MenuMinimized,
+      Multiselect
+
   },
  
   data() {
@@ -141,6 +149,8 @@ export default {
       openday:'today',
       state:'NSW',
       places:[],
+      options: ['BBQ', 'Coffee', 'Desserts', "Greek", "Mexican", "Burgers and Hotdogs", "Finger food", "Vegetarian","Vietnamese", "Japanese", "Vegan", "Donuts", "Spanish","Brazilian","Bubble tea","Fish and chips","French"," German Food","Gluten free","Ice cream","Indian"]
+
     }
   },
   computed: {
@@ -157,11 +167,15 @@ export default {
   },
   methods:{
    
-    getRestaurent(){
-            console.log('second')
+     getRestaurent(cuisine){
 
-      console.log(this.radius);
-      this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
+      this.emitter.emit('getOpenRestaurent',{"cuisine": cuisine, "radius":this.radius,'day':this.openday,"status":"resturent"})
+
+      console.log('cuisines:',cuisine)
+
+    },
+    filterChanged(value){
+      this.getRestaurent(value)
     },
 
     getFoodtrucksByState(){

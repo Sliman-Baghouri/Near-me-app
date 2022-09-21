@@ -20,7 +20,7 @@
                         <div  v-if="isCustomizePage">
                             <div class="view-event-details-button">
                               
-                            <a  v-bind:href="content.url" target="_blank">Hire Business <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                            <a  v-bind:href="content.url" target="_blank">Hire Foodtruck <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
                             </div>
 
                         </div> 
