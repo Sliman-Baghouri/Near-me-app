@@ -250,4 +250,9 @@ export default {
 .multiselect-tag {
     background: #F28F48 !important;
 }
+
+.gm-style-pbc{
+    display: none !important
+}
+
 </style>

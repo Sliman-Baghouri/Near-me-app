@@ -240,8 +240,11 @@ export default {
 
 };
 </script>
-<style lang="scss">
+<style>
 
+.gm-style-pbc{
+    display: none !important
+}
 
 
 </style>

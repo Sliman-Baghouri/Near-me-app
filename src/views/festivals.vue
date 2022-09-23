@@ -134,3 +134,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.gm-style-pbc{
+    display: none !important
+}
+
+</style>
