@@ -40,10 +40,11 @@
 
 </template>
 <script>
+// import $ from "jquery";
 
 export default {
 
-    name:"sidebar-Component"
+    name:"sidebar-Component",
 }
 </script>
 

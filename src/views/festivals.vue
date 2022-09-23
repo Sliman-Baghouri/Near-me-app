@@ -105,8 +105,8 @@ export default {
                   // }, 3000);
          // this.emitter.emit('getAllFestivals',{"radius":this.radius,"status":"festivals","day":this.openday})
     },
-    onToggle(index)
-    {
+    onToggle(index){
+          window.scrollTo({top: 0, behavior: 'smooth'});
      
        if (this.activeIndex === index) {
           this.activeIndex = null;
@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style>
-.gm-style-pbc{
+.gm-style-moc{
     display: none !important
 }
 

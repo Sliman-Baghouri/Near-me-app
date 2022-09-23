@@ -216,8 +216,10 @@ export default {
       // this.emitter.emit('getOpenRestaurent',{"radius":this.radius,'day':this.openday,"status":"resturent"})
     },
    
-    onToggle(value,index)
-    {
+    onToggle(value,index){
+
+                window.scrollTo({top: 0, behavior: 'smooth'});
+
      
        if (this.activeIndex === index) {
           // console.log("whatopen this.activeIndex",this.activeIndex , index)
@@ -242,7 +244,7 @@ export default {
 </script>
 <style>
 
-.gm-style-pbc{
+.gm-style-moc{
     display: none !important
 }
 

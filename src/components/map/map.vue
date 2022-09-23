@@ -88,7 +88,7 @@
        </GMapMarker>
     <!-- </GMapCluster> -->
     
-      <GMapInfoWindow :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
+     <GMapInfoWindow :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
         <div>
          
            <InfoContent :content="infoContents"/>
@@ -472,32 +472,39 @@ google_maps_geocoder.geocode(
    
         })
     },
-    findDistance()
-    {
-         this.emitter.on('findDistance',(data)=>{
-           if(data)
-           {
-            //  console.log("this.startLocation",this.startLocation);
-             if(!this.startLocation) 
-             {
-               alert("please start your browser location");
+    findDistance(){
+        // this findDistance function is now closing the info windows change this later to its own function
+         this.emitter.on('findDistance',()=>{
+                this.infoWinOpen = false;
+
+           // if(data)
+           // {
+           //  //  console.log("this.startLocation",this.startLocation);
+           //   if(!this.startLocation) 
+           //   {
+           //     alert("please start your browser location");
               
-             }
-             else
-             {
-              var href="https://www.google.com/maps/dir/?api=1&origin="+this.startLocation.lat+","+this.startLocation.lng+"&destination="+this.endLocation.lat+","+this.endLocation.lng+"";
-              window.open(href);   
-             }
+           //   }
+           //   else
+           //   {
+           //    var href="https://www.google.com/maps/dir/?api=1&origin="+this.startLocation.lat+","+this.startLocation.lng+"&destination="+this.endLocation.lat+","+this.endLocation.lng+"";
+           //    window.open(href);   
+           //   }
              
-             }
+           //   }
 
 
         })
           
            
     },
-    getALLVendors()
-    {
+
+    closeBtn(){
+        this.emitter.on('closeBtn',()=>{
+         console.log('closed')
+        })
+    },
+    getALLVendors(){
        this.emitter.on('getAllVendors',(data)=>{
            if(data)
            {
@@ -585,10 +592,11 @@ google_maps_geocoder.geocode(
   
 
   created(){
-
     $(document).ready(function(){
         $('.floatingButton').on('click',
             function(e){
+
+
                 e.preventDefault();
                 $(this).toggleClass('open');
                 if($(this).children('.fa').hasClass('fa-plus'))

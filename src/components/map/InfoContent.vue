@@ -2,7 +2,7 @@
 <template>
     <div class="google-popup">
         <v-card>
-           
+            <svg @click="findDistance" id="info-close-btn" style="cursor:pointer;position: absolute;right:10px" height="20" viewBox="0 0 64 64" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m4.59 59.41a2 2 0 0 0 2.83 0l24.58-24.58 24.59 24.58a2 2 0 0 0 2.83-2.83l-24.59-24.58 24.58-24.59a2 2 0 0 0 -2.83-2.83l-24.58 24.59-24.59-24.58a2 2 0 0 0 -2.82 2.82l24.58 24.59-24.58 24.59a2 2 0 0 0 0 2.82z"/></svg>
             <div class="card-title">
                 <div class="card-headers d-flex justify-content-between">
                     <div class="resto-detail">
@@ -20,7 +20,7 @@
                         <div  v-if="isCustomizePage">
                             <div class="view-event-details-button">
                               
-                            <a  v-bind:href="content.url" target="_blank">Hire Foodtruck <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                            <a  v-bind:href="content.url" target="_blank">Hire this food truck <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
                             </div>
 
                         </div> 
@@ -92,17 +92,15 @@
      }
   }
 },
-        created(){
+        created(){  
             console.log(this.content)
         },
         methods:{
-            closeInfo()
-            {
-               
-                 this.emitter.emit('closeInfo', false)
+            closeInfo(){
+                console.log('clicked')
+                 this.emitter.emit('closeBtn')
             },
-            findDistance()
-            {
+            findDistance(){
                 this.emitter.emit('findDistance', true)
             }
         },
