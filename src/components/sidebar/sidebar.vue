@@ -31,7 +31,8 @@
   </div>
 
   <div class="sideber-bottom">
- Copyright Foodtrucker 2022 all right reserved
+    <hr>
+ <b style="padding-bottom: 10px;">Copyright Foodtrucker 2022 all right reserved</b>
 </div>
 </div>
   </div>

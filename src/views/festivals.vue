@@ -10,6 +10,7 @@
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
           <select v-model="state" class="timeselectBox stateSelect stateSelectFest" @change="getAllFestivals">    
+           <option disabled value="select-a-state"> -- select an option -- </option>
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option value="VIC">VIC</option>
@@ -76,9 +77,15 @@ export default {
      state:'NSW'
     }
   },
-  mounted()
-  {
+  mounted(){
     this.getAllFestivals();
+          this.emitter.on('markers_fetched',()=>{
+           
+      this.state = "select-a-state"  
+       
+
+      })
+
   },
   props: {
     msg: String

@@ -27,11 +27,12 @@
 
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
-          <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >    
+          <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >
+           <option disabled value="select-a-state"> -- Select a state -- </option>              
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option value="VIC">VIC</option>
-            <option selected="selected" value="NSW">NSW</option>
+            <option value="NSW">NSW</option>
             <option value="WA">WA</option>
           </select>
 
@@ -132,8 +133,14 @@ export default {
   name: "app-sidebar",
    mounted() {  
      this.getRestaurent();
-     
-      
+
+      this.emitter.on('markers_fetched',()=>{
+           
+      this.state = "select-a-state"  
+       
+
+      })
+  
    },
   components: {
     // MenuAccordion,
@@ -141,7 +148,7 @@ export default {
       Multiselect
 
   },
- 
+
   data() {
     return {
       activeIndex:null,
@@ -153,6 +160,9 @@ export default {
 
     }
   },
+  created() {
+  },
+
   computed: {
     AllRestaurant()
     {
@@ -248,5 +258,7 @@ export default {
     display: none !important
 }
 
-
+.stateSelect{
+  width: 113px !important;
+}
 </style>

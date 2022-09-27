@@ -566,7 +566,7 @@ google_maps_geocoder.geocode(
 
         
      
-        this.$store.dispatch('AllVendors',{"radius":this.radius,'center':this.center,'day':this.day});
+          this.$store.dispatch('AllRestaurant',{"radius":this.radius,'center':this.center,'day':this.day});
 
       }
       else if(routename == 'whats-open')

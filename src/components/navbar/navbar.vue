@@ -30,6 +30,12 @@ export default{
     computed: {
     google: () => window.google // also make it available in template, as `google`
   },
+  data(){
+    return {
+      searched:false
+    }
+  },
+
 
   methods:{ 
     getcurrnetlocation(){
@@ -45,10 +51,9 @@ export default{
       //  this.emitter.emit('findDistance',{'placedata':placedata,'status':'autosearch'});
 
        this.emitter.emit('markers_fetched',{'placedata':placedata,'status':'autosearch'});
-              console.log('arrived')
-
-      
-      
+        
+              console.log($('#searchTextField').val())
+        
     },
 
     byState(){
@@ -60,11 +65,6 @@ export default{
 
   created(){  
     let that = this;
-
-        $(document).ready(function() {
-        
-         
-        });
 
   }
 }
