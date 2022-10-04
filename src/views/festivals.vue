@@ -10,7 +10,6 @@
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
           <select v-model="state" class="timeselectBox stateSelect stateSelectFest" @change="getAllFestivals">    
-           <option disabled value="select-a-state"> -- select an option -- </option>
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option value="VIC">VIC</option>
@@ -53,9 +52,96 @@
       
       </div>
 </div>
-<div v-else>
- No data found
+<div  v-else >
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
 </div>
+
       
 
   
@@ -66,8 +152,18 @@
 <script>
 // import $ from "jquery";
 
+import { Skeleton } from 'vue-loading-skeleton';
+import "vue-loading-skeleton/dist/style.css"
+
+
 export default {
   name: 'vendor-component',
+  components: {
+    // MenuAccordion,
+    // VueMultiselect,
+    Skeleton
+  },
+
   data() {
     return {
      festivals:"festivals",
@@ -77,15 +173,9 @@ export default {
      state:'NSW'
     }
   },
-  mounted(){
+  mounted()
+  {
     this.getAllFestivals();
-          this.emitter.on('markers_fetched',()=>{
-           
-      this.state = "select-a-state"  
-       
-
-      })
-
   },
   props: {
     msg: String

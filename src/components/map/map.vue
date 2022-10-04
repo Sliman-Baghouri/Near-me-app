@@ -63,7 +63,47 @@
    ref="myMapRef"
     style="width: 500px; height: 550px"
   >
-    <!-- <GMapCluster> -->
+    <GMapCluster 
+                  :styles="[
+          {
+            textColor: 'black',
+            url: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/37c2a570c318122df57b83140f5f54665b9359e5/packages/markerclustererplus/images/m1.png',
+            height: 52,
+            width: 53,
+            fontWeight:'bold',
+          },
+          {
+            textColor: 'black',
+            url: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/37c2a570c318122df57b83140f5f54665b9359e5/packages/markerclustererplus/images/m2.png',
+            height: 55,
+            width: 56,
+            fontWeight:'bold',
+          },
+          {
+            textColor: 'black',
+            url: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/37c2a570c318122df57b83140f5f54665b9359e5/packages/markerclustererplus/images/m3.png',
+            height: 65,
+            width: 66,
+            fontWeight:'bold',
+          },
+          {
+            textColor: 'black',
+            url: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/37c2a570c318122df57b83140f5f54665b9359e5/packages/markerclustererplus/images/m4.png',
+            height: 77,
+            width: 78,
+            fontWeight:'bold',
+          },
+          {
+            textColor: 'black',
+            url: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/37c2a570c318122df57b83140f5f54665b9359e5/packages/markerclustererplus/images/m5.png',
+            height: 89,
+            width: 90,
+            fontWeight:'bold',
+          },
+        ]"
+
+
+    >
  
        <GMapMarker
           :key="index"
@@ -86,7 +126,7 @@
         
       
        </GMapMarker>
-    <!-- </GMapCluster> -->
+    </GMapCluster>
     
      <GMapInfoWindow :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
         <div>
@@ -506,8 +546,7 @@ google_maps_geocoder.geocode(
     },
     getALLVendors(){
        this.emitter.on('getAllVendors',(data)=>{
-           if(data)
-           {
+           if(data){
             //  console.log('vendordata',data);
              this.radius=data.radius;
     
@@ -548,8 +587,7 @@ google_maps_geocoder.geocode(
         })
     },
 
-    checkRoute()
-    { 
+    checkRoute(){ 
       
     
      var routename= this.$route.name;
@@ -569,14 +607,12 @@ google_maps_geocoder.geocode(
           this.$store.dispatch('AllRestaurant',{"radius":this.radius,'center':this.center,'day':this.day});
 
       }
-      else if(routename == 'whats-open')
-      {
+      else if(routename == 'whats-open'){
      
           this.$store.dispatch('AllRestaurant',{"radius":this.radius,'center':this.center,'day':this.day});
        
       }
-      else if(routename == 'festivals')
-      {
+      else if(routename == 'festivals'){
            this.$store.dispatch('Festivals',{"radius":this.radius,'center':this.center,'day':this.day});
         //  this.$store.dispatch('AllVendors',{"radius":this.radius,'center':this.center,'day':this.day});
       }
