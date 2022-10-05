@@ -110,9 +110,96 @@
 
       </div>
       </div>
-      <div v-else>
-        No data found
+<div  v-else >
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
       </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+</div>
+
       <div >
 
       </div>
@@ -133,6 +220,9 @@
 
 // import VueMultiselect from 'vue-multiselect'
   import Multiselect from '@vueform/multiselect'
+import { Skeleton } from 'vue-loading-skeleton';
+import "vue-loading-skeleton/dist/style.css"
+
 
 export default {
   name: "app-sidebar",
@@ -150,7 +240,8 @@ export default {
   components: {
     // MenuAccordion,
     // VueMultiselect,
-    Multiselect
+    Multiselect,
+    Skeleton    
   },
  
   data() {
@@ -191,6 +282,8 @@ export default {
     },
 
     getFoodtrucksByState(){
+          document.getElementById('searchTextField').value = ""
+
       // console.log(this.radius);
 
 

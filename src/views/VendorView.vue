@@ -110,9 +110,95 @@
 
       </div>
       </div>
-      <div v-else>
-        No data found
+<div  v-else >
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
       </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+    <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+
+
+          <div class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+</div>
       <div >
 
       </div>
@@ -128,6 +214,9 @@
 <script>
 // import $ from "jquery";
   import Multiselect from '@vueform/multiselect'
+import { Skeleton } from 'vue-loading-skeleton';
+import "vue-loading-skeleton/dist/style.css"
+
 
 export default {
   name: "app-sidebar",
@@ -136,17 +225,15 @@ export default {
 
       this.emitter.on('markers_fetched',()=>{
            
-      this.state = "select-a-state"  
-       
-
+         this.state = "select-a-state"  
       })
   
    },
   components: {
     // MenuAccordion,
     // MenuMinimized,
-      Multiselect
-
+      Multiselect,
+      Skeleton
   },
 
   data() {
@@ -169,10 +256,7 @@ export default {
      
       var resto = this.$store.getters.get_all_restaurant
       this.emitter.emit('getresto', {"data":resto,"status":"foodtruck"})
-    
         return resto;
-
-
     }
   },
   methods:{
@@ -186,9 +270,13 @@ export default {
     },
     filterChanged(value){
       this.getRestaurent(value)
+
     },
 
     getFoodtrucksByState(){
+  // empty navbar's input value when a state is changed
+    document.getElementById('searchTextField').value = ""
+
       // console.log(this.radius);
 
 

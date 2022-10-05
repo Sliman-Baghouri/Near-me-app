@@ -9,7 +9,8 @@
 
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
-          <select v-model="state" class="timeselectBox stateSelect stateSelectFest" @change="getAllFestivals">    
+          <select v-model="state" class="timeselectBox stateSelect stateSelectFest" @change="getAllFestivals">  
+           <option disabled value="select-a-state"> -- Select a state -- </option>            
             <option value="SA">SA</option>
             <option value="QLD">QLD</option>
             <option value="VIC">VIC</option>
@@ -173,8 +174,12 @@ export default {
      state:'NSW'
     }
   },
-  mounted()
-  {
+  mounted(){
+      this.emitter.on('markers_fetched',()=>{
+       
+        this.state = "select-a-state"  
+      })
+
     this.getAllFestivals();
   },
   props: {
@@ -195,6 +200,7 @@ export default {
   },
   methods:{
     getAllFestivals(){
+    document.getElementById('searchTextField').value = ""
 
               this.emitter.emit('mapFun', {state:this.state, type:'festivals'});
                   //  setTimeout(function(){ 

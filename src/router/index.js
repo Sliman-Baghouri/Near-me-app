@@ -8,11 +8,11 @@ import festivals from  '@/views/festivals.vue';
 const routes = [
   {
     path: "/",
-    redirect: { name: 'whats-open' },
+    redirect: { name: 'vendor' },
   },
   {
     path: "/:catchAll(.*)",
-    redirect: { name: 'whats-open' },
+    redirect: { name: 'vendor' },
 
   },
   {
@@ -20,15 +20,15 @@ const routes = [
     name: 'home',
     component: AppLayout,
     children:[
+       {
+        name:'vendor',
+        path:'/vendors',
+        component: vendor,
+      },
       {
         name:'whats-open',
         path:'/whats-open',
         component: whatsOpen,
-      },
-      {
-        name:'vendor',
-        path:'/vendors',
-        component: vendor,
       },
       {
         name:'festivals',
