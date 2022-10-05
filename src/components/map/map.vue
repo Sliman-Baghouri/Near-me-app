@@ -21,6 +21,7 @@
     rotateControl: false,
     fullscreenControl: true,
     disableDefaultUi: false,
+    gestureHandling: 'greedy',
       styles: [
           {
             featureType: 'administrative.locality',
