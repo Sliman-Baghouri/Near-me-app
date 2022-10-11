@@ -21,13 +21,32 @@ export const whatIs = {
                      dataFiltered = [];
                     response.data.forEach((foodtruck)=>{
                         if(foodtruck.categories){
+                            let foodCat = [];
+
                             foodtruck.categories.forEach((category) => {
-                              if(selectedCuisines.includes(category.name)){
-                                  dataFiltered.push(foodtruck)
-                              }      
+                                foodCat.push(category.name);
                             })
+                            let checker = (arr, target) => target.every(v => arr.includes(v));
+
+                            if(checker(foodCat, selectedCuisines)){
+                                  dataFiltered.push(foodtruck)
+                            }
                         }
                     })
+                // The below code is for "or" conditioning when user selects filters. Above is for "and".
+                // let dataFiltered;
+                // if(selectedCuisines && selectedCuisines.length){
+                //      dataFiltered = [];
+                //     response.data.forEach((foodtruck)=>{
+                //         if(foodtruck.categories){
+                //             foodtruck.categories.forEach((category) => {
+                //               if(selectedCuisines.includes(category.name)){
+                //                   dataFiltered.push(foodtruck)
+                //               }      
+                //             })
+                //         }
+                //     })
+                // }                    
                 }else{
                     // otherwise, just render all data.
                     dataFiltered = response.data;
@@ -52,7 +71,9 @@ export const whatIs = {
                commit('SET_RESTAURANT',response.data);
                                console.log('done rendering foodtrucks!')
                  setTimeout(function(){ 
-                        $('.resto-name-link')[0].click(); 
+                        if($('.resto-name-link')[0]){
+                            $('.resto-name-link')[0].click(); 
+                        }
                   }, 1000);
 
             })

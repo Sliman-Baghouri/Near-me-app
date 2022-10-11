@@ -111,7 +111,7 @@
       </div>
       </div>
 <div  v-else >
-    <div class="vendor-content d-flex sidebarbox-font">
+    <div  v-show="elementVisible" class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -132,29 +132,7 @@
       </div>
       
       </div>
-    <div class="vendor-content d-flex sidebarbox-font">
-      <div class="resto-logo">
-         <!-- <img :src="require('../assets/profile.png')" > -->
-        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
-      </div>
-      <div class="vendor-details all-details">
-        <a href="#" class="common-name-link festivals-link">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-      </a>
-         <div class="location-font">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-
-         </div>
-         <div class="location-font">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-
-         </div>
-
-      </div>
-      
-      </div>
-
-          <div class="vendor-content d-flex sidebarbox-font">
+    <div  v-show="elementVisible" class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -176,8 +154,7 @@
       
       </div>
 
-
-          <div class="vendor-content d-flex sidebarbox-font">
+          <div  v-show="elementVisible" class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -198,6 +175,30 @@
       </div>
       
       </div>
+
+
+          <div   v-show="elementVisible" class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+      <p>No listing was found</p>
 </div>
       <div >
 
@@ -238,6 +239,7 @@ export default {
 
   data() {
     return {
+      elementVisible: true,
       activeIndex:null,
       radius:6,
       openday:'today',
@@ -270,6 +272,7 @@ export default {
     },
     filterChanged(value){
       this.getRestaurent(value)
+            setTimeout(() => this.elementVisible = false, 1000)
 
     },
 

@@ -23,83 +23,217 @@
     disableDefaultUi: false,
     gestureHandling: 'greedy',
       styles: [
-
-                { 
-                'featureType': 'poi.attraction', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.business', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.government', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.medical', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.park', 
-                'elementType': 'labels', 
-                'stylers': [ { 'visibility': 'off' } ]                  
-            },{ 
-                'featureType': 'poi.place_of_worship', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.school', 
-                'stylers': [ { 'visibility': 'off' } ] 
-            },{ 
-                'featureType': 'poi.sports_complex', 
-                'stylers': [ { 'visibility': 'off' } ] 
+    {
+        'featureType': 'administrative',
+        'elementType': 'labels.text.fill',
+        'stylers': [
+            {
+                'color': '#444444'
+            }
+        ]
+    },
+    {
+        'featureType': 'administrative.locality',
+        'elementType': 'labels',
+        'stylers': [
+            {
+                'visibility': 'on'
+            }
+        ]
+    },
+    {
+        'featureType': 'landscape',
+        'elementType': 'all',
+        'stylers': [
+            {
+                'color': '#f2f2f2'
             },
-
-       { 
-            featureType: 'administrative', 
-            stylers: [ { 'visibility': 'off' } ] 
-        },
-       {
-            featureType: 'poi.business',
-            stylers: [{ visibility: 'off' }],
-          },
-          {
-            featureType: 'transit',
-            elementType: 'labels.icon',
-            stylers: [{ visibility: 'off' }],
-          },
-          {
-            featureType: 'administrative.locality',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#d59563'}]
-        },
-
-        {
-            featureType: 'road',
-            elementType: 'geometry.stroke',
-            stylers: [{color: '#grey'}]
-        },
-        {
-            featureType: 'road.highway',
-            elementType: 'geometry',
-            stylers: [{color: '#F6BB7F'}]
-        },
-        {
-            featureType: 'road.highway',
-            elementType: 'labels.text.fill',
-            stylers: [{color: '#DEE2E7'}]
-        },
-        {
-            featureType: 'road.arterial',
-            elementType: 'geometry',
-            stylers: [{color: '#DEE2E7' }]
-
-        }
-
-    ,{
-    featureType: 'landscape',
-    elementType: 'labels',
-    stylers: [
-      { 'visibility': 'off' }
-    ]
-  }
-    ]
+            {
+                'visibility': 'simplified'
+            }
+        ]
+    },
+    {
+        'featureType': 'poi',
+        'elementType': 'all',
+        'stylers': [
+            {
+                'visibility': 'on'
+            }
+        ]
+    },
+    {
+        'featureType': 'poi',
+        'elementType': 'geometry',
+        'stylers': [
+            {
+                'visibility': 'simplified'
+            },
+            {
+                'saturation': '-65'
+            },
+            {
+                'lightness': '45'
+            },
+            {
+                'gamma': '1.78'
+            }
+        ]
+    },
+    {
+        'featureType': 'poi',
+        'elementType': 'labels',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'poi',
+        'elementType': 'labels.icon',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'road',
+        'elementType': 'all',
+        'stylers': [
+            {
+                'saturation': -100
+            },
+            {
+                'lightness': 45
+            }
+        ]
+    },
+    {
+        'featureType': 'road',
+        'elementType': 'labels',
+        'stylers': [
+            {
+                'visibility': 'on'
+            }
+        ]
+    },
+    {
+        'featureType': 'road',
+        'elementType': 'labels.icon',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'road.highway',
+        'elementType': 'all',
+        'stylers': [
+            {
+                'visibility': 'simplified'
+            }
+        ]
+    },
+    {
+        'featureType': 'road.highway',
+        'elementType': 'labels.icon',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'road.arterial',
+        'elementType': 'labels.icon',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'transit.line',
+        'elementType': 'geometry',
+        'stylers': [
+            {
+                'saturation': '-33'
+            },
+            {
+                'lightness': '22'
+            },
+            {
+                'gamma': '2.08'
+            }
+        ]
+    },
+    {
+        'featureType': 'transit.station.airport',
+        'elementType': 'geometry',
+        'stylers': [
+            {
+                'gamma': '2.08'
+            },
+            {
+                'hue': '#ffa200'
+            }
+        ]
+    },
+    {
+        'featureType': 'transit.station.airport',
+        'elementType': 'labels',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'transit.station.rail',
+        'elementType': 'labels.text',
+        'stylers': [
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
+    {
+        'featureType': 'transit.station.rail',
+        'elementType': 'labels.icon',
+        'stylers': [
+            {
+                'visibility': 'simplified'
+            },
+            {
+                'saturation': '-55'
+            },
+            {
+                'lightness': '-2'
+            },
+            {
+                'gamma': '1.88'
+            },
+            {
+                'hue': '#ffab00'
+            }
+        ]
+    },
+    {
+        'featureType': 'water',
+        'elementType': 'all',
+        'stylers': [
+            {
+                'color': '#bbd9e5'
+            },
+            {
+                'visibility': 'simplified'
+            }
+        ]
+    }
+]
   }"
    map-type-id="roadmap"
    ref="myMapRef"
@@ -462,7 +596,7 @@ google_maps_geocoder.geocode(
 
 */
         for(i = 0; i < data.length; i++ ){
-          //  console.log(data[i].logo);
+           // console.log(data[i], 'daaaaaaaaaaaaaaaaaaaam');
           // var foodtypedata=data[i].foodtype.split(',');
           this.markers.push({
              position:{
