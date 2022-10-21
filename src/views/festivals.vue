@@ -54,7 +54,7 @@
       </div>
 </div>
 <div  v-else >
-    <div class="vendor-content d-flex sidebarbox-font">
+    <div v-if="elementVisible" class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -75,29 +75,7 @@
       </div>
       
       </div>
-    <div class="vendor-content d-flex sidebarbox-font">
-      <div class="resto-logo">
-         <!-- <img :src="require('../assets/profile.png')" > -->
-        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
-      </div>
-      <div class="vendor-details all-details">
-        <a href="#" class="common-name-link festivals-link">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-      </a>
-         <div class="location-font">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-
-         </div>
-         <div class="location-font">
-          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
-
-         </div>
-
-      </div>
-      
-      </div>
-
-          <div class="vendor-content d-flex sidebarbox-font">
+    <div v-if="elementVisible"  class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -119,8 +97,7 @@
       
       </div>
 
-
-          <div class="vendor-content d-flex sidebarbox-font">
+          <div v-if="elementVisible" class="vendor-content d-flex sidebarbox-font">
       <div class="resto-logo">
          <!-- <img :src="require('../assets/profile.png')" > -->
         <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
@@ -141,8 +118,31 @@
       </div>
       
       </div>
+
+
+          <div v-if="elementVisible" class="vendor-content d-flex sidebarbox-font">
+      <div class="resto-logo">
+         <!-- <img :src="require('../assets/profile.png')" > -->
+        <Skeleton circle :count="1" height="55px" width="55px"> </Skeleton> 
+      </div>
+      <div class="vendor-details all-details">
+        <a href="#" class="common-name-link festivals-link">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+      </a>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+         <div class="location-font">
+          <Skeleton :count="1" height="10px" width="180px"> </Skeleton> 
+
+         </div>
+
+      </div>
+      
+      </div>
+      <p :class="{ visible: elementVisible }">No listing was found</p>
 </div>
-
       
 
   
@@ -169,6 +169,7 @@ export default {
     return {
      festivals:"festivals",
      radius:6,
+     elementVisible:true,
      activeIndex:null,
      openday:"today",
      state:'NSW'
@@ -178,7 +179,17 @@ export default {
       this.emitter.on('markers_fetched',()=>{
        
         this.state = "select-a-state"  
+                             let that = this;
+             setTimeout(function(){
+                that.elementVisible = false
+                          console.log(this.elementVisible, 'shit')
+
+            }, 5000)
+
+
       })
+
+
 
     this.getAllFestivals();
   },
@@ -201,7 +212,7 @@ export default {
   methods:{
     getAllFestivals(){
     document.getElementById('searchTextField').value = ""
-
+              // the below function don't work with festivals fix it asap.
               this.emitter.emit('mapFun', {state:this.state, type:'festivals'});
                   //  setTimeout(function(){ 
                   //       $('.festivals-link')[0].click(); 

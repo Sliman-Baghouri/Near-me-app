@@ -375,6 +375,7 @@
 <script>
 import $ from "jquery";
    /* eslint-disable no-undef */
+
    
 // import DirectionsRenderer from "./DirectionsRenderer.js";
 import InfoContent from './InfoContent.vue'
@@ -470,7 +471,7 @@ export default {
                 var google_maps_geocoder = new google.maps.Geocoder();
 google_maps_geocoder.geocode(
     { 'latLng': google_map_pos },
-    function( results, status ) {
+                 function( results, status ) {
                         if ( status == google.maps.GeocoderStatus.OK && results[0] ) {
                             $("#searchTextField").val(results[0].formatted_address);
                         }

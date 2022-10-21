@@ -56,7 +56,11 @@ export const whatIs = {
                 console.log(dataFiltered)
                commit('SET_RESTAURANT', dataFiltered);
                    setTimeout(function(){ 
+                    if($('.resto-name-link')[0]){
+
+
                         $('.resto-name-link')[0].click(); 
+                         }
                   }, 1000);
                
             })
@@ -85,7 +89,7 @@ export const whatIs = {
     },
     mutations:{
         SET_RESTAURANT(state,data, cuisine){
-            console.log('stuff just arrived',data, cuisine);   
+            console.log('stuff just arrived', data, cuisine);   
             state.restaurant = data;
         },
     },
