@@ -10,8 +10,8 @@ export const festivals = {
         
         Festivals({commit},data){
      
-                
-
+                    
+                console.log(data, 'baby fest')
                 FestivalsAPI.getAllFestivals(data)
             .then(function(response){
 

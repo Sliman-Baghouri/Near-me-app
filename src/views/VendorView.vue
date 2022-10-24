@@ -261,8 +261,9 @@ export default {
     AllRestaurant(){
      
       var resto = this.$store.getters.get_all_restaurant
+      console.log('before anything',resto)
       this.emitter.emit('getresto', {"data":resto,"status":"foodtruck"})
-        console.log('senttttttttttttttttttttttttttttt')
+
         return resto;
     }
   },

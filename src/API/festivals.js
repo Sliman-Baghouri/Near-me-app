@@ -7,8 +7,8 @@ export default {
         var lat = data.center.lat;
         var lng = data.center.lng;
        
-        axios.get("https://foodtrucker.com.au/wp-json/ft/v1/events?distance="+300 +"&lat="+lat+"&lng="+lng)
-        .then(res => console.log(res));
+        // axios.get("https://foodtrucker.com.au/wp-json/ft/v1/events?distance="+300 +"&lat="+lat+"&lng="+lng)
+        // .then(res => console.log(res));
 
          return axios.get("https://foodtrucker.com.au/wp-json/ft/v1/events?distance="+300 +"&lat="+lat+"&lng="+lng)
    

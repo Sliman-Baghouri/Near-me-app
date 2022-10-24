@@ -183,6 +183,11 @@
         ]
     },
     {
+      featureType: 'transit.station.bus',
+      stylers:  [{ 'visibility': 'off' }]
+    },
+
+    {
         'featureType': 'transit.station.airport',
         'elementType': 'labels',
         'stylers': [
@@ -403,6 +408,7 @@ export default {
   data() {
     return {
     center: { lat:-33.8688197,lng:151.2092955},
+    defaultC:{ lat:-33.8688197,lng:151.2092955},
     //  center: { lat:0,lng:0},
      currentlocation:{ lat:-37.8136276,lng:144.9630576},
       shape : {
@@ -493,8 +499,7 @@ google_maps_geocoder.geocode(
         // console.log("currentlocation",currentlocation);
     },
     // set_all_restaurant is set restoraunt marker on map 
-   set_all_restaurant()
-    {
+   set_all_restaurant(){
           
    
            this.emitter.on('getresto', (restodata) => {
@@ -502,7 +507,7 @@ google_maps_geocoder.geocode(
            this.allrestoData= restodata.data;
            this.mapdataType = restodata.status;
 
-          //  console.log(this.mapdataType,this.allrestoData);
+           // console.log('heyyyyyy',this.allrestoData);
 
            this.AddMarkToFindLocation(this.allrestoData);
 
@@ -533,14 +538,16 @@ google_maps_geocoder.geocode(
             NSW: {lat: -33.8688197,lng: 151.2092955},
             SA:  {lat: -34.9284989, lng: 138.6007456},
             WA:  {lat:-31.953512,   lng:115.857048}
-        }
+        } 
 
      this.emitter.on('mapFun',(state)=>{ 
             console.log(state)
 
             if(state.type.includes('festivals')){
                 this.$store.dispatch('Festivals',{'center':allStates[state.state]})
+
             }else{
+                console.log('==========> fired')
                 this.$store.dispatch('AllFoodtrucks',{'center':allStates[state.state]});
             }
       })
@@ -627,15 +634,15 @@ google_maps_geocoder.geocode(
 
     },
     //click open foodtruck and set all information in infocontent 
-    setInfoContent()
-    {
+    setInfoContent(){
         this.emitter.on('marker_result_clicked',(infodata)=>{
-          // console.log('markerrrsss',this.markers)
+          console.log('markerrrsss',this.markers)
         
          var index = infodata.index;
            let targetMarker=this.markers[index];
            
-           this.center=targetMarker.position;
+           this.center = targetMarker.position;
+           console.log(this.center, 'lat,lng')
            this.endLocation = targetMarker.position;
           
            this.toggleInfoWindow(targetMarker,infodata)
@@ -756,7 +763,7 @@ google_maps_geocoder.geocode(
               this.day = data.day;
               this.mapdataType=data.status;
                this.radius = data.radius; 
-             return   this.$store.dispatch('AllRestaurant',{"cuisine":data.cuisine, "radius":this.radius,'center':this.center,'day':this.day});
+             return   this.$store.dispatch('AllRestaurant',{"cuisine":data.cuisine, "radius":this.radius,'center':this.defaultC,'day':this.day});
               
             }
 

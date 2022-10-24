@@ -9,12 +9,12 @@ export const whatIs = {
     actions:{
         
         AllRestaurant({commit},data){
-           console.log(data.cuisine, 'baby');
+           console.log(data, 'baby');
            let selectedCuisines = data.cuisine;
             WhatAPI.getAllRestaurant(data)
 
             .then(function(response){
-                console.log(response.data, selectedCuisines)
+                console.log(response.data)
                 // If the user chooses to filter by cuisine:
                 let dataFiltered;
                 if(selectedCuisines && selectedCuisines.length){
@@ -33,27 +33,26 @@ export const whatIs = {
                             }
                         }
                     })
-                // The below code is for "or" conditioning when user selects filters. Above is for "and".
-                // let dataFiltered;
-                // if(selectedCuisines && selectedCuisines.length){
-                //      dataFiltered = [];
-                //     response.data.forEach((foodtruck)=>{
-                //         if(foodtruck.categories){
-                //             foodtruck.categories.forEach((category) => {
-                //               if(selectedCuisines.includes(category.name)){
-                //                   dataFiltered.push(foodtruck)
-                //               }      
-                //             })
-                //         }
-                //     })
-                // }                    
+                // // The below code is for "or" conditioning when user selects filters. Above is for "and".
+                // // let dataFiltered;
+                // // if(selectedCuisines && selectedCuisines.length){
+                // //      dataFiltered = [];
+                // //     response.data.forEach((foodtruck)=>{
+                // //         if(foodtruck.categories){
+                // //             foodtruck.categories.forEach((category) => {
+                // //               if(selectedCuisines.includes(category.name)){
+                // //                   dataFiltered.push(foodtruck)
+                // //               }      
+                // //             })
+                // //         }
+                // //     })
+                // // }                    
                 }else{
                     // otherwise, just render all data.
                     dataFiltered = response.data;
                     console.log('arrived here', dataFiltered)
                 }
 
-                console.log(dataFiltered)
                commit('SET_RESTAURANT', dataFiltered);
                    setTimeout(function(){ 
                     if($('.resto-name-link')[0]){
@@ -70,6 +69,8 @@ export const whatIs = {
         },
 
         AllFoodtrucks({commit}, data){
+
+            console.log('damn danil', data)
             WhatAPI.getAllFoodtrucks(data)
             .then(function(response){
                commit('SET_RESTAURANT',response.data);
@@ -84,12 +85,11 @@ export const whatIs = {
             .catch(function(){
                 console.log(3);
             });
-
         }
     },
     mutations:{
-        SET_RESTAURANT(state,data, cuisine){
-            console.log('stuff just arrived', data, cuisine);   
+        SET_RESTAURANT(state,data){
+            // console.log('stuff just arrived', data, cuisine);   
             state.restaurant = data;
         },
     },

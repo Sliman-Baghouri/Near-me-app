@@ -216,9 +216,6 @@
 <script>
 
 // import $ from "jquery";
-// import dropdowns from "semantic-ui-dropdown";
-
-// import VueMultiselect from 'vue-multiselect'
   import Multiselect from '@vueform/multiselect'
 import { Skeleton } from 'vue-loading-skeleton';
 import "vue-loading-skeleton/dist/style.css"
