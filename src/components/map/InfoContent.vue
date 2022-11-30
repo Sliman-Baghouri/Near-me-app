@@ -4,8 +4,31 @@
         <v-card>
             <svg @click="findDistance" id="info-close-btn" style="cursor:pointer;position: absolute;right:10px" height="20" viewBox="0 0 64 64" width="20" xmlns="http://www.w3.org/2000/svg"><path d="m4.59 59.41a2 2 0 0 0 2.83 0l24.58-24.58 24.59 24.58a2 2 0 0 0 2.83-2.83l-24.59-24.58 24.58-24.59a2 2 0 0 0 -2.83-2.83l-24.58 24.59-24.59-24.58a2 2 0 0 0 -2.82 2.82l24.58 24.59-24.58 24.59a2 2 0 0 0 0 2.82z"/></svg>
             <div class="card-title">
-                <div class="card-headers d-flex justify-content-between">
-                    <div class="resto-detail">
+                <div class="card-headers justify-content-between">
+                 
+                    <div class="resto-detail" >
+                        <Splide :options="{lazyLoad:'sequential', rewind: true }"   aria-label="Food Truck Gallery">
+                             <SplideSlide v-for="slide in this.allImgs" :key="slide.src">
+                                 <img :data-splide-lazy="slide" :src="slide" alt="Food Truck Picture">
+                            </SplideSlide>
+                        </Splide>
+     <div class="resto-name-details d-flex justify-content-between align-items-center">
+                    <div class="resto-imag">
+                        <img  :src="content.icon">
+                    </div>
+                        <div class="resto-name">
+                            <a href="#">{{content.name}}</a>
+                            <div class="info-foodtype" >
+                             
+                             <span class="foodtype-name"  v-for="(food, index) in  content.foodtype" :key="index">
+                                   <a :href="cusineURL1+ food.name.replace(/&amp;/g, 'and').replace(/[\s&]+/g, '-') + cusineURL2" target="_blank">
+                                    <img  class="info-category-img" :src="food.image"> {{food.name}}</a> 
+                                </span>
+
+                            </div>
+                            <div v-if="content.info"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="info-resto-text">{{content.info}}</span></div>
+                        </div>
+                </div>                        
                         <a v-bind:href="content.url" target="_blank"><div class="address-head">{{content.address}}</div>
                         <!-- <div class="reatolocation ">{{content.street}},{{content.city}},{{content.state}}</div> -->
                         </a> 
@@ -41,25 +64,7 @@
                              <span class="info-resto-time"><i class="fa fa-clock"></i></span><span class="info-restotime-text">{{content.time}}</span>
                     
                 </div>
-                <div class="resto-name-details d-flex justify-content-between align-items-center">
-                    <div class="resto-imag">
-                        <img  :src="content.icon">
-                    </div>
-                        <div class="resto-name">
-                            <a href="#">{{content.name}}</a>
-                            <div class="info-foodtype" >
-                             
-                             <span class="foodtype-name"  v-for="(food, index) in  content.foodtype" :key="index">
-                                   <a :href="cusineURL1+ food.name.replace(/&amp;/g, 'and').replace(/[\s&]+/g, '-') + cusineURL2" target="_blank">
-                                    <img  class="info-category-img" :src="food.image"> {{food.name}}</a> 
-                                </span>
-
-                            </div>
-                            <div v-if="content.info"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="info-resto-text">{{content.info}}</span></div>
-                        </div>
-                        
-                        
-                </div>
+           
                       
                 </div>
             
@@ -68,13 +73,46 @@
 </template>
 
 <script>
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/vue-splide/css';
+
+
+
     export default {
         props:['content'],
+        components: {
+            Splide,
+            SplideSlide,
+      },
+ 
+      setup() {
+        // let slides; 
+    //     setTimeout(function(){
+    //      this.allImgs = [{
+    //   src: `https://foodtrucker.com.au/wp-content/uploads/2022/09/300406825_496354849162220_7883852161873153917_n.jpg`,
+    // }, {src:'https://foodtrucker.com.au/wp-content/uploads/2022/09/300956513_493359509461754_5209062268310746491_n-768x1024.jpg'}];
+    //     console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',slides)
+
+    //     },2000)
+
+
+           
+        const options = {
+          rewind : true,
+          lazyLoad:'sequential',          
+          perPage: 2,
+        };
+    return {
+      options,
+     }
+  },
+
         data () {
             return {
                 card_text: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui. Et percipit laboramus usu, no invidunt verterem nominati mel. Dolorem ancillae an mei, ut putant invenire splendide mel, ea nec propriae adipisci. Ignota salutandi accusamus in sed, et per malis fuisset, qui id ludus appareat.',
                 cusineURL1: "https://foodtrucker.com.au/cuisines/",
-                cusineURL2:"-near-me/"
+                cusineURL2:"-near-me/",
+                allImgs:[]
             }
         },
         computed: {
@@ -92,16 +130,46 @@
      }
   }
 },
-        created(){  
-            console.log(this.content)
+
+        async created(){  
+
+ 
+
+        },
+        mounted(){
+
+        this.emitter.on('fetchSliderImages', async (markerURL)=>{
+
+           let businessID = /[^/]*$/.exec(markerURL.info.slice(0, -1))[0];
+            console.log(businessID)
+            this.fetchGallery(businessID);
+            let srcs = await this.fetchGallery(businessID);
+            this.allImgs = srcs
+          console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',this.allImgs);
+
+
+        })
+        
         },
         methods:{
             closeInfo(){
-                console.log('clicked')
                  this.emitter.emit('closeBtn')
             },
             findDistance(){
+
                 this.emitter.emit('findDistance', true)
+            },
+            async fetchGallery(businessID){
+                let headers = new Headers();
+                headers.append('Content-Type', 'application/json');
+                headers.append('Accept', 'application/json');
+                headers.append('Origin','http://localhost:8080');
+                let imgs;
+                let url = 'https://foodtrucker-api-production.up.railway.app/nearme-gallery/' + businessID;
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    imgs = data;
+                return imgs
             }
         },
         
@@ -157,7 +225,15 @@ max-height: 200px;
 .info-close-btn{
     margin-left: 38px;
     margin-top: 7px;
-   
+}
+
+#info-close-btn{
+     z-index: 9999999 !important;
+     margin-top: 5px;
+}
+
+.resto-name > a{
+    color: black !important;
 }
 .resto-name-details{
     /* border: 1px solid red; */
@@ -170,6 +246,8 @@ max-height: 200px;
 
 .resto-detail a {
     color: #232323;
+    width: 200px !important;
+    display: block;
 
     /* font-size:14px; */
     font-weight: normal;
@@ -185,6 +263,9 @@ max-height: 200px;
     border-radius: 0 !important;
     padding: 7px !important;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 5%);
+    display: block;
+    width: 163px !important;
+    margin-left: 7%;
 }
 
 .view-event-details-button svg{
@@ -216,4 +297,64 @@ max-height: 200px;
     text-decoration: underline;
 } */
 
+
+/* slider  */
+
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+}
+.splide__list{
+    height: auto;
+}
+
+.splide.is-initialized{
+    width: 306px;
+    height: 150px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+
+.card-headers{
+    width: 100%;
+    display: block !important;
+    padding: 0 !important;
+}
+.gm-style .gm-style-iw-d{
+    overflow: auto !important;
+}
+
+.gm-style .gm-style-iw-c{
+    padding: 0 !important;
+}
+
+
+.info-foodtype{
+    display: flex;
+    width: auto;
+    flex-wrap: wrap;
+}
+.foodtype-name{
+    height: 40px;
+    width: 84px;
+}
+
+.foodtype-name a{
+    font-size: 11px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.resto-detail a{
+text-decoration: none;
+}
+.address-head {
+    margin-left: 10%;
+    color: grey;
+    font-weight: normal;
+    width: 259px;
+    line-height: 1.5;    
+}
 </style>

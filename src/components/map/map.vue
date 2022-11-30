@@ -397,7 +397,7 @@ export default {
     this.setAutoSearchdata();
     this.set_all_restaurant();
     this.setInfoContent();
-   
+
     // this.closeInfoModel();
     this.getcurrentlocationByclickGPS();
     this.findDistance();
@@ -458,7 +458,9 @@ export default {
     
   },
   methods:{
-    
+    alertIt(){
+        console.log('ggggggggggggggggggggggggggggggggggggggggggggggggggg')
+    },
      geolocate(){
        
             this.infoWinOpen = false;
@@ -514,9 +516,7 @@ google_maps_geocoder.geocode(
         })
     },
     // search location data  and related foodtruck location are set in setAutoSearchdata()
-    setAutoSearchdata()
-    {
-      
+    setAutoSearchdata(){
       this.emitter.on('markers_fetched',(place)=>{
         
         this.currentPlace = place.placedata;
@@ -554,6 +554,10 @@ google_maps_geocoder.geocode(
      
     },
 
+    byGallery(){
+
+    },
+
     setSerchedLocation(){
         if (this.currentPlace) {
       this.markers = [];
@@ -580,7 +584,7 @@ google_maps_geocoder.geocode(
     },
      AddMarkToFindLocation(data){
 
-        console.log('hey fest',data);
+        console.log('------------------------------------------------');
        this.markers = [];
       var marker,i;
       data;
@@ -653,6 +657,9 @@ google_maps_geocoder.geocode(
     //Note:open InfoWindow according to click foodtruck Information 
      toggleInfoWindow (marker, infoContent) {
 
+          this.emitter.emit('fetchSliderImages', {info:marker.url});
+
+        
 
 /*
        console.log(infoContent);
@@ -722,6 +729,8 @@ google_maps_geocoder.geocode(
           
            
     },
+
+
 
     closeBtn(){
         this.emitter.on('closeBtn',()=>{
