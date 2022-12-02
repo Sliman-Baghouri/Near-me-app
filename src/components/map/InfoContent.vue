@@ -7,18 +7,45 @@
                 <div class="card-headers justify-content-between">
                  
                     <div class="resto-detail" >
-                        <Splide :options="{lazyLoad:'sequential', rewind: true }"   aria-label="Food Truck Gallery">
+                        <Splide v-if="content.infotype=='foodtruck'" :options="{lazyLoad:'nearby', rewind: true }"   aria-label="Food Truck Gallery">
                              <SplideSlide v-for="slide in this.allImgs" :key="slide.src">
                                  <img :data-splide-lazy="slide" :src="slide" alt="Food Truck Picture">
                             </SplideSlide>
                         </Splide>
      <div class="resto-name-details d-flex justify-content-between align-items-center">
-                    <div class="resto-imag">
+                    <div v-if="content.infotype=='foodtruck'" class="resto-imag">
                         <img  :src="content.icon">
                     </div>
+                    <div v-if="content.infotype=='festivals'" class="resto-imag fest-imag">
+                        <img  :src="content.icon">
+                    </div>
+
                         <div class="resto-name">
-                            <a href="#">{{content.name}}</a>
-                            <div class="info-foodtype" >
+                             <div  v-if="isCustomizePage">
+                                <div class="view-event-details-button">
+                                  
+                                <a  v-bind:href="content.url" target="_blank">Hire this food truck <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                </div>    
+                <div class="foodtruck-infos">
+                    <div class="business-name">
+                        <a v-if="content.infotype=='foodtruck'" target="_blank" :href="content.url" class="big-name">{{content.name}}</a>
+                        <a v-if="content.infotype=='festivals'" target="_blank" :href="content.url" class="big-name-fest">{{content.name}}</a>
+
+
+                        <div v-if="content.info"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="info-resto-text">{{content.info}}</span></div>
+                    </div>
+
+                        <a v-bind:href="content.url" target="_blank"><div class="address-head">{{content.address}}</div>
+                        <!-- <div class="reatolocation ">{{content.street}},{{content.city}},{{content.state}}</div> -->
+                        </a> 
+                                                    
+                        
+                         <div class="info-foodtype" >
                              
                              <span class="foodtype-name"  v-for="(food, index) in  content.foodtype" :key="index">
                                    <a :href="cusineURL1+ food.name.replace(/&amp;/g, 'and').replace(/[\s&]+/g, '-') + cusineURL2" target="_blank">
@@ -26,27 +53,16 @@
                                 </span>
 
                             </div>
-                            <div v-if="content.info"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="info-resto-text">{{content.info}}</span></div>
-                        </div>
-                </div>                        
-                        <a v-bind:href="content.url" target="_blank"><div class="address-head">{{content.address}}</div>
-                        <!-- <div class="reatolocation ">{{content.street}},{{content.city}},{{content.state}}</div> -->
-                        </a> 
-                              
-                        <div v-if="content.infotype=='festivals'">
-                            <div class="view-event-details-button">
+                                                     <div v-if="content.infotype=='festivals'">
+                            <div class="view-event-details-button fest-btn">
                             <a v-bind:href="content.url" target="_blank">View Event Details</a>
                             </div>
 
                         </div>           
-                        
-                        <div  v-if="isCustomizePage">
-                            <div class="view-event-details-button">
-                              
-                            <a  v-bind:href="content.url" target="_blank">Hire this food truck <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none"><path d="M10 1.5L17 9.5L10 17.5M1 9.5H17H1Z" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
-                            </div>
 
-                        </div> 
+                </div>
+
+
                     </div>
                     <div class="info-close-btn" v-if="content.infotype=='foodtruck'">
 <!--                              <span class="share-icon" @click="findDistance"><img :src="require('../../assets/icons/Path.png')" ></span>
@@ -86,20 +102,12 @@ import '@splidejs/vue-splide/css';
       },
  
       setup() {
-        // let slides; 
-    //     setTimeout(function(){
-    //      this.allImgs = [{
-    //   src: `https://foodtrucker.com.au/wp-content/uploads/2022/09/300406825_496354849162220_7883852161873153917_n.jpg`,
-    // }, {src:'https://foodtrucker.com.au/wp-content/uploads/2022/09/300956513_493359509461754_5209062268310746491_n-768x1024.jpg'}];
-    //     console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',slides)
-
-    //     },2000)
-
+      
 
            
         const options = {
           rewind : true,
-          lazyLoad:'sequential',          
+          lazyLoad:'nearby',          
           perPage: 2,
         };
     return {
@@ -141,10 +149,8 @@ import '@splidejs/vue-splide/css';
         this.emitter.on('fetchSliderImages', async (markerURL)=>{
 
            let businessID = /[^/]*$/.exec(markerURL.info.slice(0, -1))[0];
-            console.log(businessID)
-            this.fetchGallery(businessID);
-            let srcs = await this.fetchGallery(businessID);
-            this.allImgs = srcs
+           let srcs = await this.fetchGallery(businessID);
+            this.allImgs = srcs.images
           console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',this.allImgs);
 
 
@@ -160,16 +166,18 @@ import '@splidejs/vue-splide/css';
                 this.emitter.emit('findDistance', true)
             },
             async fetchGallery(businessID){
-                let headers = new Headers();
-                headers.append('Content-Type', 'application/json');
-                headers.append('Accept', 'application/json');
-                headers.append('Origin','http://localhost:8080');
-                let imgs;
-                let url = 'https://foodtrucker-api-production.up.railway.app/nearme-gallery/' + businessID;
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    imgs = data;
-                return imgs
+               const rawResponse = await fetch('https://foodtrucker-api-production.up.railway.app/nearme-gallery/fetchGallery', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },                      
+                body: JSON.stringify({business:businessID})
+              });
+              const images = await rawResponse.json();
+              console.log(images,'ddddddddddddddddddddddddddddddddddd')
+              return images;
+
             }
         },
         
@@ -232,6 +240,10 @@ max-height: 200px;
      margin-top: 5px;
 }
 
+.resto-name{
+    text-align: right;
+    margin-right: 11px;
+}
 .resto-name > a{
     color: black !important;
 }
@@ -259,22 +271,31 @@ max-height: 200px;
 }
 
 .view-event-details-button a{
-
-    border-radius: 0 !important;
-    padding: 7px !important;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 5%);
-    display: block;
-    width: 163px !important;
-    margin-left: 7%;
+    display: inline-block;
+    text-decoration: none;
+    background: #F28F48 !important;
+    color: #fff;
+    line-height: 1.4;
+    border-radius: 3px !important;
+    padding: 0;
+    padding: 5px !important;
+    font-size: 12px;
+    width: 62% !important;
+    font-weight: 500;    
+    border: none !important;
 }
 
 .view-event-details-button svg{
     width: 15px;
     height: 15px;
     transform: translateY(3px);
-    margin-left: 14px;
+    margin-left: 5px;
 }
-
+.fest-btn a{
+    text-align: center;
+    margin-bottom: 3%;
+}
 
 .foodtype-name{
     border-radius: 0 !important;
@@ -283,19 +304,22 @@ max-height: 200px;
 .resto-imag img {
     border-radius: 100% !important;
     box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
+    transform: translate(13px,-60%)
 }
 
+.fest-imag img{
+    border-radius: 100% !important;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 10%);
+    transform: translate(102px,-20%);
+}
 
-/* .resto-detail{
-   
-    width: 100%;
-    padding: 5px 0;
-    
+ .resto-detail{
+overflow-x: hidden;    
 }
 
 .resto-name a:hover{
     text-decoration: underline;
-} */
+} 
 
 
 /* slider  */
@@ -338,7 +362,7 @@ max-height: 200px;
 }
 .foodtype-name{
     height: 40px;
-    width: 84px;
+    width: 76px;
 }
 
 .foodtype-name a{
@@ -351,10 +375,26 @@ max-height: 200px;
 text-decoration: none;
 }
 .address-head {
-    margin-left: 10%;
     color: grey;
     font-weight: normal;
     width: 259px;
     line-height: 1.5;    
 }
+
+.foodtruck-infos{
+    margin-left: 7%;
+}
+
+.foodtruck-infos .big-name{
+    font-size: 15px;
+    font-weight: bold;
+    transform: translateY(-15px);
+}
+
+.foodtruck-infos .big-name-fest{
+    font-size: 13px;
+    font-weight: bold;
+    transform: translateY(-15px);
+}
+
 </style>

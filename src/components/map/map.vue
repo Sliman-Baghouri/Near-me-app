@@ -641,7 +641,7 @@ google_maps_geocoder.geocode(
     setInfoContent(){
         this.emitter.on('marker_result_clicked',(infodata)=>{
           console.log('markerrrsss',this.markers)
-        
+
          var index = infodata.index;
            let targetMarker=this.markers[index];
            
