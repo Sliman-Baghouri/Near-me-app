@@ -326,7 +326,8 @@ border: 1px solid #204d74;
 
       }
       .sidebar-logo-component img{
-        width: 69px;
+        width: 100px !important;
+        margin-top: 30%;
       }
 
       .list-business-bar{
@@ -453,13 +454,11 @@ border: 1px solid #204d74;
   .foodtype-name{
     background-color: rgba(238,134,79,.26);
     border: 1px solid #fff;
-    margin: 0 5px 0 0;
-    padding: 2px 6px;
     text-align: center;
     border-radius: 10px;
     font-weight: 500;
-    display: inline-flex;
-    line-height: 19px;
+    display: flex;
+    align-items: center;
   }
   .info-foodtype{
     padding-bottom: 5px;
@@ -645,3 +644,71 @@ border: 1px solid #204d74;
   
 }
 
+/* Mobile Changes */
+
+.sidebar-nav-tabs {
+    display: none;
+}
+
+.stateSelect-nav{
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+  .search-text-mobile{
+    display: flex;
+  }
+  .sidebar-nav-tabs {
+    display: flex;
+    justify-content: space-around;      
+  }
+  .sidebar-original-tabs{
+      display: none;
+  }
+
+  .stateSelect-original{
+    display: none;
+  }
+
+  .stateSelect-nav{
+    display: flex;
+    background: #FFF;
+    align-items: center;
+    margin-right: 8px;
+    padding-right: 5px;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 17%);
+    border-radius: 21px;
+  }
+
+  .stateSelect-nav .stateSelect{
+    border-radius: 19px;
+    background: #FFF;
+    margin-top: 4px;
+    box-shadow: -4px 1px 5px rgb(0 0 0 / 18%);
+  }
+}
+
+.mobile-navigation{
+      display: flex;
+    justify-content: space-between;
+    background: #FFF;
+    flex-direction: column;
+    box-shadow: 0px 4px 14px rgb(0 0 0 / 17%);
+    margin-top: 7px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+
+.mobile-navigation .sidebar-tabs li a{
+    padding-bottom: 3px;
+    padding-top: 4px;
+    display: inline-flex;   
+    flex-direction: column;
+}
+
+a.border-right img{
+    width: 32px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}

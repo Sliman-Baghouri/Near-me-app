@@ -147,12 +147,10 @@ import '@splidejs/vue-splide/css';
         mounted(){
 
         this.emitter.on('fetchSliderImages', async (markerURL)=>{
-
+            this.allImgs = [];
            let businessID = /[^/]*$/.exec(markerURL.info.slice(0, -1))[0];
            let srcs = await this.fetchGallery(businessID);
             this.allImgs = srcs.images
-          console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$',this.allImgs);
-
 
         })
         
@@ -238,6 +236,11 @@ max-height: 200px;
 #info-close-btn{
      z-index: 9999999 !important;
      margin-top: 5px;
+    background: #ccc;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 3px;     
 }
 
 .resto-name{
@@ -357,12 +360,12 @@ overflow-x: hidden;
 
 .info-foodtype{
     display: flex;
-    width: auto;
+    width: 256px;
     flex-wrap: wrap;
 }
 .foodtype-name{
     height: 40px;
-    width: 76px;
+    width: 128px;
 }
 
 .foodtype-name a{
@@ -395,6 +398,32 @@ text-decoration: none;
     font-size: 13px;
     font-weight: bold;
     transform: translateY(-15px);
+}
+
+
+@media screen and (max-width: 500px){
+    
+.info-foodtype{
+    flex-direction: column;
+}
+
+.festival-distance{
+    display: none !important;
+}
+.foodtype-name{
+    width: 70%;
+}
+    .other-details{
+       width: 259px !important; 
+
+    }
+    .view-event-details-button a{
+        width: 80% !important;
+    }
+
+.splide.is-initialized {
+    width: 259px;
+    }
 }
 
 </style>

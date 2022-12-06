@@ -24,8 +24,8 @@
           </select>
         </span> -->
         <!-- By State -->
-
-        <span class="time-txt ml-2 mr-2"> State </span>
+        <div class="stateSelect-original">
+    <span class="time-txt ml-2 mr-2"> State </span>
           <span>
           <select class="timeselectBox stateSelect" v-model="state" @change="getFoodtrucksByState" >
            <option disabled value="select-a-state"> -- Select a state -- </option>              
@@ -37,6 +37,9 @@
           </select>
 
       </span>
+
+        </div>
+    
             <br>
       <span class="time-txt" style="margin-bottom:5px;margin-top:5px;display: block;">Filter By Cuisine</span>
 

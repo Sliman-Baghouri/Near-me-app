@@ -6,6 +6,7 @@
         <div class="festival-distance">         
       
                <!-- By State -->
+        <div class="stateSelect-original">
 
         <span class="time-txt ml-2 mr-2"> State </span>
           <span>
@@ -18,6 +19,7 @@
             <option value="WA">WA</option>
           </select>
         </span>
+      </div>
       </div>
       </div>
  <!-- {{festivals}} -->
