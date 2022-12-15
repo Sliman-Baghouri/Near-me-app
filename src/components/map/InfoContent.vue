@@ -360,7 +360,7 @@ overflow-x: hidden;
 
 .info-foodtype{
     display: flex;
-    width: 256px;
+    /*width: 256px;*/
     flex-wrap: wrap;
 }
 .foodtype-name{
@@ -370,18 +370,24 @@ overflow-x: hidden;
 
 .foodtype-name a{
     font-size: 11px !important;
-    white-space: nowrap;
-    overflow: hidden;
+     padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     text-overflow: ellipsis;
 }
+
+.foodtype-name a img {margin-right: 8px}
 .resto-detail a{
 text-decoration: none;
 }
 .address-head {
     color: grey;
     font-weight: normal;
-    width: 259px;
-    line-height: 1.5;    
+    line-height: 1.5;   
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;     
 }
 
 .foodtruck-infos{
