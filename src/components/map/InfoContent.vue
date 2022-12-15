@@ -360,7 +360,7 @@ overflow-x: hidden;
 
 .info-foodtype{
     display: flex;
-    /*width: 256px;*/
+    width: 256px;
     flex-wrap: wrap;
 }
 .foodtype-name{
