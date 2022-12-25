@@ -4,6 +4,21 @@
              -o-transition:all 1s ease;
                    transition:all 1s ease;
 }
+
+.sidebar-component{
+}
+
+.sidebar-component[data-v-9a5c856e]{
+    height: 100% !important;
+
+}
+@media screen and (max-width: 768px){
+        .floatingButtonWrap{
+                display: block !important;
+        }
+}
+
+
 input{background-color: white !important;}
 body{
   overflow-wrap: unset;
@@ -587,10 +602,13 @@ border: 1px solid #204d74;
       width: 100%;
       height: 100%;
   }
+.switchNav{
+        top: 0% !important;
+}
 
   .sidebar-component{
     bottom: 0;
-    top: 83%;
+    top: 100%;
     left: 0px;
     width: 100%;
   }

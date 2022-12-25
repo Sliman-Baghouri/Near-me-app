@@ -1,6 +1,6 @@
 <template>
    
-       <div class="sidebar-component draggable" id="hit_div">       
+       <div class="sidebar-component draggable " id="hit_div">       
          <div class="inner-sidebar">  
      <div class="inner-sidebar-compnet dragger">
        <!-- start logo component -->
