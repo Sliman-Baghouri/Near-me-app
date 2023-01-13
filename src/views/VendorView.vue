@@ -43,7 +43,7 @@
             <br>
       <span class="time-txt" style="margin-bottom:5px;margin-top:5px;display: block;">Filter By Cuisine</span>
 
-        <Multiselect  autocomplete="off" v-model="value" :options="options" mode="tags" :searchable="true" @change="filterChanged" />
+        <Multiselect  autocomplete="off" v-model="valueOp" :options="options" mode="tags" :searchable="true" @change="filterChanged" />
 
       </div>
    
@@ -251,6 +251,7 @@ export default {
       activeIndex:null,
       radius:6,
       openday:'today',
+      valueOp:null,
       state:'NSW',
       places:[],
       options: ['BBQ', 'Coffee', 'Desserts', "Greek", "Mexican", "Burgers and Hotdogs", "Finger food", "Vegetarian","Vietnamese", "Japanese", "Vegan", "Donuts", "Spanish","Brazilian","Bubble tea","Fish and chips","French"," German Food","Gluten free","Ice cream","Indian"]
@@ -281,12 +282,12 @@ export default {
     },
     filterChanged(value){
       this.getRestaurent(value)
-
     },
 
     getFoodtrucksByState(){
   // empty navbar's input value when a state is changed
     document.getElementById('searchTextField').value = ""
+      this.valueOp = null
 
       // console.log(this.radius);
 

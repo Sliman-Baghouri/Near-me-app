@@ -18,35 +18,36 @@ export const whatIs = {
                 // If the user chooses to filter by cuisine:
                 let dataFiltered;
                 if(selectedCuisines && selectedCuisines.length){
+                    //  dataFiltered = [];
+                    // response.data.forEach((foodtruck)=>{
+                    //     if(foodtruck.categories){
+                    //         let foodCat = [];
+
+                    //         foodtruck.categories.forEach((category) => {
+                    //             foodCat.push(category.name);
+                    //         })
+                    //         let checker = (arr, target) => target.every(v => arr.includes(v));
+
+                    //         if(checker(foodCat, selectedCuisines)){
+                    //               dataFiltered.push(foodtruck)
+                    //         }
+                    //     }
+                    // })
+                // The below code is for "or" conditioning when user selects filters. Above is for "and".
+                // let dataFiltered;
+                if(selectedCuisines && selectedCuisines.length){
                      dataFiltered = [];
                     response.data.forEach((foodtruck)=>{
                         if(foodtruck.categories){
-                            let foodCat = [];
-
                             foodtruck.categories.forEach((category) => {
-                                foodCat.push(category.name);
-                            })
-                            let checker = (arr, target) => target.every(v => arr.includes(v));
-
-                            if(checker(foodCat, selectedCuisines)){
+                              if(selectedCuisines.includes(category.name)){
                                   dataFiltered.push(foodtruck)
-                            }
+                              }      
+                            })
                         }
                     })
-                // // The below code is for "or" conditioning when user selects filters. Above is for "and".
-                // // let dataFiltered;
-                // // if(selectedCuisines && selectedCuisines.length){
-                // //      dataFiltered = [];
-                // //     response.data.forEach((foodtruck)=>{
-                // //         if(foodtruck.categories){
-                // //             foodtruck.categories.forEach((category) => {
-                // //               if(selectedCuisines.includes(category.name)){
-                // //                   dataFiltered.push(foodtruck)
-                // //               }      
-                // //             })
-                // //         }
-                // //     })
-                // // }                    
+                    console.log('xxxxdata', dataFiltered)
+                }                    
                 }else{
                     // otherwise, just render all data.
                     dataFiltered = response.data;

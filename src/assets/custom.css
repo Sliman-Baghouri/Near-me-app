@@ -183,6 +183,14 @@ border: 1px solid #204d74;
     -webkit-overflow-scrolling: touch;
     padding-top: 12px;
   }
+
+  @media screen and (max-width: 768px){
+
+    .inner-resto-list-component{
+    max-height: 100vh;
+
+    }
+  }
  
   ::-webkit-scrollbar {
     width: 8px;
@@ -600,8 +608,10 @@ border: 1px solid #204d74;
 
   .vue-map {
       width: 100%;
-      height: 100%;
+      height: 115% !important;
   }
+
+
 .switchNav{
         top: 0% !important;
 }
@@ -613,7 +623,7 @@ border: 1px solid #204d74;
     width: 100%;
   }
   .vue-map, .vue-map-container {
-    max-height: 720px;
+    /*max-height: 720px;*/
 }
 
 }

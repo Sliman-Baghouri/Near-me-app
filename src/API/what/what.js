@@ -11,7 +11,7 @@ export default {
 
         // return axios.get("http://localhost:3000/restaurant");
 
-        return axios.get("https://foodtrucker.com.au/wp-json/ft/v1/whats-open?distance="+100+"&within="+data.day+"&lat="+lat+"&lng="+lng)
+        return axios.get("https://foodtrucker.com.au/wp-json/ft/v1/whats-open?distance="+data.radius+"&within="+data.day+"&lat="+lat+"&lng="+lng)
     
     },
     getAllFoodtrucks: function(data){

@@ -363,7 +363,9 @@ export default {
     return {
     center: { lat:-33.8688197,lng:151.2092955},
     defaultC:{ lat:-33.8688197,lng:151.2092955},
-    //  center: { lat:0,lng:0},
+    defaultR:2000000000000,
+    defaultF:{ lat:22.2943706,lng:73.1540819},    
+     // center: { lat:0,lng:0},
      currentlocation:{ lat:-37.8136276,lng:144.9630576},
       shape : {
     coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -727,7 +729,7 @@ google_maps_geocoder.geocode(
               this.day = data.day;
               this.mapdataType=data.status;
                this.radius = data.radius; 
-             return   this.$store.dispatch('AllRestaurant',{"cuisine":data.cuisine, "radius":this.radius,'center':this.defaultC,'day':this.day});
+             return   this.$store.dispatch('AllRestaurant',{"cuisine":data.cuisine, "radius":this.radius,'center':this.center,'day':this.day});
               
             }
 

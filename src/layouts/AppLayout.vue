@@ -1,14 +1,14 @@
 <template>
   <div>
     
-    <div class="map-component">
+    <div class="map-component" draggable="false">
       
     <Map />
     </div>
-    <div class="searchbar-component">
+    <div class="searchbar-component" draggable="false">
      <navbar />
     </div>
-      <div class="main-sidebar-component">
+      <div class="main-sidebar-component" draggable="false">
       <sidebar />
       </div>
   </div>
@@ -25,7 +25,7 @@ export default {
         Map
     },
     data: () => ({
-      drawer: true,
+      drawer: false,
       group: null,
       items: [
         {
