@@ -147,6 +147,7 @@ import '@splidejs/vue-splide/css';
         mounted(){
 
         this.emitter.on('fetchSliderImages', async (markerURL)=>{
+            this.updateNewImages();
             this.allImgs = [];
            let businessID = /[^/]*$/.exec(markerURL.info.slice(0, -1))[0];
            let srcs = await this.fetchGallery(businessID);
@@ -164,7 +165,7 @@ import '@splidejs/vue-splide/css';
                 this.emitter.emit('findDistance', true)
             },
             async fetchGallery(businessID){
-               const rawResponse = await fetch('https://foodtrucker-api-production.up.railway.app/nearme-gallery/fetchGallery', {
+               const rawResponse = await fetch('https://phpstack-693095-3190662.cloudwaysapps.com/nearme-gallery/fetchGallery', {
                 method: 'POST',
                 headers: {
                   'Accept': 'application/json',
@@ -173,8 +174,21 @@ import '@splidejs/vue-splide/css';
                 body: JSON.stringify({business:businessID})
               });
               const images = await rawResponse.json();
-              console.log(images,'ddddddddddddddddddddddddddddddddddd')
               return images;
+
+            },
+
+              async updateNewImages(){
+               const rawResponse = await fetch('https://phpstack-693095-3190662.cloudwaysapps.com/gallery-storage', {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },                      
+                body: JSON.stringify({business:'update'})
+              });
+                console.log('done', rawResponse);
+               
 
             }
         },
